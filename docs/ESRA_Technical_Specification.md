@@ -1,175 +1,175 @@
 # ESRA — Evolutionary Self-Recursive Architecture
 **Technical Specification v1.1**
 
-**Дата:** 19 июля 2026  
-**Статус:** Основная спецификация (обновлено имя)  
-**Автор:** Grok (в соавторстве с пользователем)
+**Date:** 19 July 2026  
+**Status:** Primary Specification (name updated)  
+**Author:** Grok (in co-authorship with the user)
 
 > **Naming Evolution Note**  
-> Ранее документ назывался ESDA — Evolutionary Self-Development Architecture.  
-> С 19 июля 2026 официальное человеко-читаемое имя — **ESRA — Evolutionary Self-Recursive Architecture**.  
-> Технические идентификаторы (`esda/`, `ESDAOrchestrator` и т.д.) временно сохранены.
+> Previously the document was called ESDA — Evolutionary Self-Development Architecture.  
+> As of 19 July 2026 the official human-readable name is **ESRA — Evolutionary Self-Recursive Architecture**.  
+> Technical identifiers (`esda/`, `ESDAOrchestrator`, etc.) are temporarily retained.
 
 ---
 
-## 1. Vision & Принципы
+## 1. Vision & Principles
 
-**Evolutionary Self-Recursive Architecture (ESRA)** — это модульная, мета-рефлексивная архитектура для создания автономных агентов, способных к долгосрочному, осознанному и устойчивому саморазвитию.
+**Evolutionary Self-Recursive Architecture (ESRA)** is a modular, meta-reflective architecture for creating autonomous agents capable of long-term, deliberate, and antifragile self-development.
 
-### Основные принципы:
+### Core Principles:
 
-- **Модульность** — каждый навык является независимым, версионируемым компонентом.
-- **Мета-уровень** — наличие компонента, способного анализировать и улучшать саму систему развития (`Loop-Auditor`).
-- **Ценностное выравнивание** — обязательная проверка соответствия действий ценностям перед значимыми действиями.
-- **Теория игр + Системное мышление** — анализ взаимодействий навыков как повторяющейся игры и поиск leverage points.
-- **Антихрупкость** — архитектура должна становиться сильнее от стресса, ошибок и неопределённости.
-- **Наблюдаемость** — все взаимодействия логируются и доступны для аудита.
-- **Эволюционность** — система способна со временем усиливать успешные паттерны взаимодействия.
-- **Рекурсивность** — архитектура улучшает саму себя через собственные циклы.
-
----
-
-## 2. Уровни архитектуры
-
-ESRA организована в 8 уровней:
-
-| Уровень | Название                  | Назначение                                      | Ключевой навык              | Мета-роль |
-|--------|---------------------------|--------------------------------------------------|-----------------------------|---------| 
-| 0      | Runtime                   | Исполнение задач и работа с инструментами       | Runtime Agent               | — |
-| 1      | Рефлексивный              | Наблюдение и анализ собственного поведения      | Self-Observer               | — |
-| 2      | Ценностно-ориентированный | Поддержка и эволюция ценностей и направления    | Value-Clarifier             | Высокая |
-| 3      | Глубинный анализ          | Философский и системный анализ последствий      | Optimizer-Philosopher + System-Dynamics-Thinker | Высокая |
-| 4      | Экспериментальный         | Проектирование и проверка гипотез               | Experimenter                | Средняя |
-| 5      | Интеграционный            | Обновление ментальных моделей                   | Mental-Model-Updater        | Высокая |
-| 6      | Антихрупкий               | Развитие устойчивости к стрессу                 | Antifragility-Builder       | Средняя |
-| 7      | Мета-уровень              | Аудит и эволюция самой архитектуры              | Loop-Auditor                | **Критическая** |
+- **Modularity** — every skill is an independent, versionable component.
+- **Meta-level** — presence of a component capable of analysing and improving the development system itself (`Loop-Auditor`).
+- **Value Alignment** — mandatory check of action consistency with values before significant actions.
+- **Game Theory + Systems Thinking** — analysis of skill interactions as a repeated game and search for leverage points.
+- **Antifragility** — the architecture must become stronger from stress, errors, and uncertainty.
+- **Observability** — all interactions are logged and available for audit.
+- **Evolvability** — the system is capable of reinforcing successful interaction patterns over time.
+- **Recursivity** — the architecture improves itself through its own cycles.
 
 ---
 
-## 3. Компоненты и их контракты
+## 2. Architecture Levels
 
-### 3.1 Skill Contract (Общий интерфейс навыка)
+ESRA is organised into 8 levels:
 
-Каждый навык должен реализовывать следующий контракт:
+| Level | Name                        | Purpose                                           | Key Skill(s)                                      | Meta-role   |
+|-------|-----------------------------|---------------------------------------------------|---------------------------------------------------|-------------|
+| 0     | Runtime                     | Task execution and tool interaction               | Runtime Agent                                     | —           |
+| 1     | Reflective                  | Observation and analysis of own behaviour         | Self-Observer                                     | —           |
+| 2     | Value-oriented              | Maintenance and evolution of values and direction | Value-Clarifier                                   | High        |
+| 3     | Deep Analysis               | Philosophical and systemic analysis of consequences | Optimizer-Philosopher + System-Dynamics-Thinker | High        |
+| 4     | Experimental                | Design and testing of hypotheses                  | Experimenter                                      | Medium      |
+| 5     | Integrative                 | Updating of mental models                         | Mental-Model-Updater                              | High        |
+| 6     | Antifragile                 | Development of resilience to stress               | Antifragility-Builder                             | Medium      |
+| 7     | Meta                        | Audit and evolution of the architecture itself    | Loop-Auditor                                      | **Critical**|
+
+---
+
+## 3. Components and Their Contracts
+
+### 3.1 Skill Contract (Common Skill Interface)
+
+Every skill must implement the following contract:
 
 ```markdown
-## Вход
-- Structured input (Pydantic модель или JSON Schema)
+## Input
+- Structured input (Pydantic model or JSON Schema)
 
-## Выход
+## Output
 - Structured output + 
 - Confidence score (0.0–1.0)
-- Reasoning trace (опционально, но рекомендуется)
+- Reasoning trace (optional, but recommended)
 
-## Обязательные поля вывода
-- `result`: основной результат
-- `confidence`: уверенность
-- `justification`: краткое обоснование
-- `suggested_next_skills`: список навыков, которым стоит передать управление
+## Required output fields
+- `result`: primary result
+- `confidence`: confidence level
+- `justification`: brief rationale
+- `suggested_next_skills`: list of skills to which control should be passed
 ```
 
-### 3.2 Ключевые навыки
+### 3.2 Key Skills
 
-#### `Loop-Auditor` (Уровень 7) — Самый важный компонент
+#### `Loop-Auditor` (Level 7) — The Most Important Component
 
-**Обязанности:**
-- Проводить периодический и по требованию аудит всей петли.
-- Анализировать взаимодействия навыков как повторяющуюся игру.
-- Искать субоптимальные равновесия Нэша.
-- Находить leverage points в текущей архитектуре.
-- Предлагать структурные изменения правил взаимодействия.
+**Responsibilities:**
+- Conduct periodic and on-demand audits of the entire loop.
+- Analyse skill interactions as a repeated game.
+- Search for suboptimal Nash equilibria.
+- Identify leverage points in the current architecture.
+- Propose structural changes to interaction rules.
 
-**Вход:** Доступ к логам, историям вызовов, текущим моделям навыков.
+**Input:** Access to logs, call histories, current skill models.
 
-**Выход:** Структурированный Audit Report с приоритетными рекомендациями.
+**Output:** Structured Audit Report with prioritised recommendations.
 
-#### `Experimenter` (Уровень 4)
+#### `Experimenter` (Level 4)
 
-**Обязательная проверка:**
-- Перед проектированием эксперимента должен вызываться `Value-Clarifier`.
-- При низком уровне выравнивания эксперимент получает пониженный приоритет.
+**Mandatory check:**
+- Before designing an experiment, `Value-Clarifier` must be invoked.
+- At low alignment levels the experiment receives reduced priority.
 
 ---
 
-## 4. Поток управления (Control Flow)
+## 4. Control Flow
 
-Рекомендуется **гибридный подход**:
+A **hybrid approach** is recommended:
 
-1. **Основной поток** идёт по уровням 0 → 7.
-2. `Loop-Auditor` может вмешиваться на любом этапе (особенно после значимых изменений).
-3. При обнаружении проблем `Loop-Auditor` может:
-   - Предложить изменение правил взаимодействия.
-   - Понизить приоритет определённых навыков.
-   - Инициировать специальные "лечебные" эксперименты.
+1. **Main flow** proceeds through levels 0 → 7.
+2. `Loop-Auditor` may intervene at any stage (especially after significant changes).
+3. When problems are detected, `Loop-Auditor` may:
+   - Propose changes to interaction rules.
+   - Lower the priority of certain skills.
+   - Initiate special "remedial" experiments.
 
-### Пример типичного цикла:
+### Example of a typical cycle:
 
 ```
 Self-Observer → Self-Improver → Value-Clarifier 
 → Optimizer-Philosopher + System-Dynamics-Thinker 
-→ Experimenter (с Value Alignment) 
+→ Experimenter (with Value Alignment) 
 → Mental-Model-Updater 
 → Antifragility-Builder 
-→ (опционально) Loop-Auditor
+→ (optionally) Loop-Auditor
 ```
 
 ---
 
-## 5. Хранение состояния и версионирование
+## 5. State Storage and Versioning
 
-- Все модели и знания навыков хранятся в **Markdown** (удобно для LLM).
-- Изменения версионируются через Git (или аналог).
-- `Mental-Model-Updater` работает через механизм `diff` + коммит.
-- `Loop-Auditor` может предлагать изменения в виде готовых diff'ов.
-
----
-
-## 6. Наблюдаемость и логирование
-
-**Обязательно логировать:**
-- Все вызовы навыков (вход → выход)
-- Результаты экспериментов
-- Отчёты `Loop-Auditor`
-- Изменения ценностей и моделей
-
-Рекомендуется хранить логи в структурированном виде (`JSONL` + индексация).
+- All skill models and knowledge are stored in **Markdown** (convenient for LLMs).
+- Changes are versioned via Git (or equivalent).
+- `Mental-Model-Updater` works through a `diff` + commit mechanism.
+- `Loop-Auditor` may propose changes in the form of ready-made diffs.
 
 ---
 
-## 7. Принципы безопасности и отказоустойчивости
+## 6. Observability and Logging
 
-- При сомнениях система должна предпочитать **консервативное поведение**.
-- `Loop-Auditor` имеет право на "veto" опасных изменений.
-- Все значимые изменения должны проходить через механизм подтверждения (human-in-the-loop на ранних этапах).
-- Ведётся история всех изменений архитектуры.
+**Must be logged:**
+- All skill invocations (input → output)
+- Experiment results
+- `Loop-Auditor` reports
+- Changes to values and models
 
----
-
-## 8. Дорожная карта реализации (предлагаемая)
-
-**Фаза 1 — Фундамент (текущая)**
-- Создать структуру проекта
-- Реализовать базовый `Loop-Auditor`
-- Усилить `Value Alignment` в `Experimenter`
-- Официальный переход на имя ESRA
-
-**Фаза 2 — Живой цикл**
-- Реализовать `Orchestrator` + Event Bus
-- Подключить `Self-Observer` + `Self-Improver` + `Experimenter`
-
-**Фаза 3 — Глубина**
-- Добавить `Optimizer-Philosopher` и `System-Dynamics-Thinker`
-- Улучшить `Mental-Model-Updater`
-
-**Фаза 4 — Эволюция**
-- Реализовать механизмы эволюционной динамики
-- Развить антихрупкость на уровне всей петли
-- Миграция технических идентификаторов ESDA → ESRA
+It is recommended to store logs in structured form (`JSONL` + indexing).
 
 ---
 
-**Документ будет обновляться по мере развития архитектуры.**
+## 7. Safety and Fault-Tolerance Principles
+
+- When in doubt the system must prefer **conservative behaviour**.
+- `Loop-Auditor` has the right of "veto" over dangerous changes.
+- All significant changes must pass through a confirmation mechanism (human-in-the-loop in early stages).
+- A history of all architecture changes is maintained.
 
 ---
 
-*Эта спецификация является живым документом. Все изменения должны проходить через обсуждение и, желательно, через `Loop-Auditor`.*
+## 8. Implementation Roadmap (Proposed)
+
+**Phase 1 — Foundation (current)**
+- Create project structure
+- Implement basic `Loop-Auditor`
+- Strengthen `Value Alignment` in `Experimenter`
+- Official transition to the name ESRA
+
+**Phase 2 — Living Cycle**
+- Implement `Orchestrator` + Event Bus
+- Connect `Self-Observer` + `Self-Improver` + `Experimenter`
+
+**Phase 3 — Depth**
+- Add `Optimizer-Philosopher` and `System-Dynamics-Thinker`
+- Improve `Mental-Model-Updater`
+
+**Phase 4 — Evolution**
+- Implement evolutionary dynamics mechanisms
+- Develop antifragility at the level of the entire loop
+- Migration of technical identifiers ESDA → ESRA
+
+---
+
+**The document will be updated as the architecture develops.**
+
+---
+
+*This specification is a living document. All changes should pass through discussion and, preferably, through `Loop-Auditor`.*

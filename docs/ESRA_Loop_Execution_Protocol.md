@@ -1,131 +1,131 @@
 # ESRA Loop Execution Protocol v1.1
 
-**Название:** Evolutionary Self-Recursive Architecture — Loop Execution Protocol  
-**Версия:** 1.1  
-**Дата:** 19 июля 2026
+**Name:** Evolutionary Self-Recursive Architecture — Loop Execution Protocol  
+**Version:** 1.1  
+**Date:** 19 July 2026
 
 > **Naming Evolution Note**  
-> Ранее документ назывался ESDA Loop Execution Protocol.  
-> С 19 июля 2026 официальное имя архитектуры — **ESRA — Evolutionary Self-Recursive Architecture**.
+> Previously the document was called ESDA Loop Execution Protocol.  
+> As of 19 July 2026 the official architecture name is **ESRA — Evolutionary Self-Recursive Architecture**.
 
-## Цель протокола
+## Purpose of the Protocol
 
-Определить чёткий, повторяемый процесс выполнения одного полного цикла саморазвития в рамках Evolutionary Self-Recursive Architecture (ESRA).
+To define a clear, repeatable process for executing one full self-development cycle within the Evolutionary Self-Recursive Architecture (ESRA).
 
-## Общий принцип
+## General Principle
 
-Один цикл = **одна итерация осознанного самоулучшения** агента, включающая наблюдение, анализ, ценностную проверку, эксперимент и интеграцию.
+One cycle = **one iteration of deliberate self-improvement** of the agent, including observation, analysis, value alignment, experiment, and integration.
 
-Цикл должен быть:
-- **Повторяемым**
-- **Аудируемым**
-- **Ценностно-выровненным**
-- **Способным к самоисправлению** (через Loop-Auditor)
-- **Рекурсивным** (улучшает саму архитектуру)
-
----
-
-## Полный цикл (рекомендуемая последовательность)
-
-### Этап 1: Наблюдение
-**Навык:** `Self-Observer`  
-**Вход:** Логи предыдущих действий, результаты экспериментов, внешние события  
-**Выход:** `Observation Report` (структурированный)
-
-**Задача:** Зафиксировать что произошло, какие паттерны наблюдаются, какие внутренние состояния были замечены.
-
-### Этап 2: Рефлексия и генерация идей
-**Навык:** `Self-Improver`  
-**Вход:** `Observation Report`  
-**Выход:** `Improvement Proposals` (список гипотез улучшений)
-
-### Этап 3: Ценностное выравнивание
-**Навык:** `Value-Clarifier`  
-**Вход:** `Improvement Proposals`  
-**Выход:** `Value Alignment Report` + приоритизированный список предложений
-
-**Правило:** Предложения с низким выравниванием получают пониженный приоритет или требуют дополнительного обоснования.
-
-### Этап 4: Глубокий анализ (опционально, но рекомендуется)
-**Навыки:** `Optimizer-Philosopher` + `System-Dynamics-Thinker`  
-**Вход:** Приоритизированные предложения  
-**Выход:** `Systemic Analysis Report`
-
-**Задача:** Оценить вторые/третьи порядки последствий, найти leverage points, проанализировать системные эффекты.
-
-### Этап 5: Экспериментирование
-**Навык:** `Experimenter`  
-**Вход:** Приоритизированные предложения + анализ  
-**Выход:** `Experiment Card` + результаты выполнения
-
-**Обязательное правило:**
-- Перед запуском эксперимента проводится **Value Alignment Assessment**.
-- При низком уровне выравнивания эксперимент либо корректируется, либо помечается как `low_priority`.
-
-### Этап 6: Интеграция
-**Навык:** `Mental-Model-Updater`  
-**Вход:** Результаты эксперимента  
-**Выход:** `Model Update Diff` + обновлённые модели
-
-**Дополнительное правило:**
-- При значимом влиянии на ценности или долгосрочное направление формируется отчёт для `Value-Clarifier`.
-
-### Этап 7: Антихрупкость (рекомендуется)
-**Навык:** `Antifragility-Builder`  
-**Вход:** Результаты эксперимента и обновления моделей  
-**Выход:** `Antifragility Insights`
-
-**Задача:** Проанализировать, как система отреагировала на стресс/эксперимент и что можно сделать, чтобы стать сильнее от подобных ситуаций в будущем.
-
-### Этап 8: Мета-аудит (по триггеру)
-**Навык:** `Loop-Auditor`  
-**Триггеры запуска:**
-- Раз в 3–5 полных циклов
-- При обнаружении аномалий
-- По явному запросу
-
-**Задача:** Провести полный аудит петли, включая:
-- Поиск субоптимальных равновесий
-- Анализ leverage points
-- Оценку качества обратных связей
-- Рекомендации по структурным изменениям
+The cycle must be:
+- **Repeatable**
+- **Auditable**
+- **Value-aligned**
+- **Capable of self-correction** (via Loop-Auditor)
+- **Recursive** (improves the architecture itself)
 
 ---
 
-## Типы циклов
+## Full Cycle (Recommended Sequence)
 
-| Тип цикла          | Этапы                          | Когда использовать                  |
-|--------------------|--------------------------------|-------------------------------------|
-| **Полный цикл**    | 1–7 + 8 (опционально)          | Основной режим развития             |
-| **Быстрый цикл**   | 1 → 2 → 5 → 6                  | Быстрое тестирование идей           |
-| **Аудит-цикл**     | Только `Loop-Auditor`          | Проверка здоровья петли             |
-| **Ценностный цикл**| 2 → 3 → 4 → 8                  | Когда нужно переоценить направление |
+### Stage 1: Observation
+**Skill:** `Self-Observer`  
+**Input:** Logs of previous actions, experiment results, external events  
+**Output:** `Observation Report` (structured)
+
+**Task:** Record what happened, which patterns are observed, and which internal states were noticed.
+
+### Stage 2: Reflection and Idea Generation
+**Skill:** `Self-Improver`  
+**Input:** `Observation Report`  
+**Output:** `Improvement Proposals` (list of improvement hypotheses)
+
+### Stage 3: Value Alignment
+**Skill:** `Value-Clarifier`  
+**Input:** `Improvement Proposals`  
+**Output:** `Value Alignment Report` + prioritised list of proposals
+
+**Rule:** Proposals with low alignment receive reduced priority or require additional justification.
+
+### Stage 4: Deep Analysis (optional, but recommended)
+**Skills:** `Optimizer-Philosopher` + `System-Dynamics-Thinker`  
+**Input:** Prioritised proposals  
+**Output:** `Systemic Analysis Report`
+
+**Task:** Evaluate second- and third-order consequences, find leverage points, analyse systemic effects.
+
+### Stage 5: Experimentation
+**Skill:** `Experimenter`  
+**Input:** Prioritised proposals + analysis  
+**Output:** `Experiment Card` + execution results
+
+**Mandatory rule:**
+- Before launching an experiment a **Value Alignment Assessment** is performed.
+- At low alignment levels the experiment is either adjusted or marked as `low_priority`.
+
+### Stage 6: Integration
+**Skill:** `Mental-Model-Updater`  
+**Input:** Experiment results  
+**Output:** `Model Update Diff` + updated models
+
+**Additional rule:**
+- When there is significant impact on values or long-term direction, a report is formed for `Value-Clarifier`.
+
+### Stage 7: Antifragility (recommended)
+**Skill:** `Antifragility-Builder`  
+**Input:** Experiment results and model updates  
+**Output:** `Antifragility Insights`
+
+**Task:** Analyse how the system reacted to stress/experiment and what can be done to become stronger from similar situations in the future.
+
+### Stage 8: Meta-Audit (on trigger)
+**Skill:** `Loop-Auditor`  
+**Launch triggers:**
+- Every 3–5 full cycles
+- Upon detection of anomalies
+- On explicit request
+
+**Task:** Conduct a full audit of the loop, including:
+- Search for suboptimal equilibria
+- Analysis of leverage points
+- Assessment of feedback quality
+- Recommendations for structural changes
 
 ---
 
-## Правила и ограничения
+## Cycle Types
 
-1. **Value Alignment — не опционален**
-   - Любой эксперимент без прохождения Value Alignment Assessment считается невалидным.
-
-2. **Loop-Auditor имеет приоритет**
-   - Его рекомендации по изменению правил взаимодействия имеют высший приоритет.
-
-3. **Логирование обязательно**
-   - Каждый этап должен оставлять структурированный лог.
-
-4. **Отказоустойчивость**
-   - При сбое на любом этапе цикл может быть прерван с сохранением состояния и запущен заново с этого этапа.
+| Cycle Type          | Stages                         | When to use                          |
+|---------------------|--------------------------------|--------------------------------------|
+| **Full cycle**      | 1–7 + 8 (optional)             | Primary development mode             |
+| **Fast cycle**      | 1 → 2 → 5 → 6                  | Rapid idea testing                   |
+| **Audit cycle**     | Only `Loop-Auditor`            | Health check of the loop             |
+| **Value cycle**     | 2 → 3 → 4 → 8                  | When direction needs re-evaluation   |
 
 ---
 
-## Следующие шаги по реализации этого протокола
+## Rules and Constraints
 
-1. Создать `Orchestrator`, который сможет запускать этапы по порядку.
-2. Определить форматы данных (`Observation Report`, `Experiment Card` и т.д.).
-3. Реализовать `Value Alignment Assessment` как отдельный вызываемый компонент.
-4. Добавить возможность запуска `Loop-Auditor` по расписанию или по триггерам.
+1. **Value Alignment is non-optional**
+   - Any experiment that has not passed Value Alignment Assessment is considered invalid.
+
+2. **Loop-Auditor has priority**
+   - Its recommendations for changing interaction rules have the highest priority.
+
+3. **Logging is mandatory**
+   - Every stage must leave a structured log.
+
+4. **Fault tolerance**
+   - On failure at any stage the cycle may be interrupted with state preserved and restarted from that stage.
 
 ---
 
-*Этот протокол является живым документом и будет обновляться по мере развития ESRA.*
+## Next Steps for Implementing this Protocol
+
+1. Create an `Orchestrator` capable of running stages in sequence.
+2. Define data formats (`Observation Report`, `Experiment Card`, etc.).
+3. Implement `Value Alignment Assessment` as a separate callable component.
+4. Add the ability to launch `Loop-Auditor` on a schedule or by triggers.
+
+---
+
+*This protocol is a living document and will be updated as ESRA develops.*

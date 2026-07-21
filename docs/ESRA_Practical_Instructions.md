@@ -5,12 +5,6 @@
 **Date:** July 19, 2026  
 **Status:** Living Document  
 
-> **Naming Evolution Note (v1.1 — 19 July 2026)**  
-> Previously known as **ESDA** (Evolutionary Self-Development Architecture) and briefly explored as SEDA.  
-> Official human-facing name is now **ESRA — Evolutionary Self-Recursive Architecture**.  
-> Technical identifiers (`esda/` directory, `ESDAOrchestrator` class, `run_esda_loop.py`, historical file names) are intentionally kept for backward compatibility and will be migrated in a future dedicated cycle.  
-> PESDA remains an unofficial internal meme only and never appears in official documentation.
-
 > **Evolutionary Framing**  
 > These instructions are not a static manual. They are the current best articulation of how to engage with, run, extend, and *evolve* the Evolutionary Self-Recursive Architecture itself.  
 > This document is an artifact *within* the system it describes. It is subject to observation by `Self-Observer`, improvement proposals from `Self-Improver`, value-alignment checks, safe experimentation, mental model updates, antifragility analysis, and periodic meta-audit by `Loop-Auditor`.  

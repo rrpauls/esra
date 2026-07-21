@@ -4,10 +4,6 @@
 **Version:** 1.1  
 **Date:** 19 July 2026
 
-> **Naming Evolution Note**  
-> Previously the document was called ESDA Loop Execution Protocol.  
-> As of 19 July 2026 the official architecture name is **ESRA — Evolutionary Self-Recursive Architecture**.
-
 ## Purpose of the Protocol
 
 To define a clear, repeatable process for executing one full self-development cycle within the Evolutionary Self-Recursive Architecture (ESRA).
@@ -25,14 +21,14 @@ The cycle must be:
 
 ---
 
-## Full Cycle (Recommended Sequence)
+## Full Cycle (recommended sequence)
 
 ### Stage 1: Observation
 **Skill:** `Self-Observer`  
 **Input:** Logs of previous actions, experiment results, external events  
 **Output:** `Observation Report` (structured)
 
-**Task:** Record what happened, which patterns are observed, and which internal states were noticed.
+**Task:** Record what happened, which patterns are observed, which internal states were noticed.
 
 ### Stage 2: Reflection and Idea Generation
 **Skill:** `Self-Improver`  
@@ -44,14 +40,14 @@ The cycle must be:
 **Input:** `Improvement Proposals`  
 **Output:** `Value Alignment Report` + prioritised list of proposals
 
-**Rule:** Proposals with low alignment receive reduced priority or require additional justification.
+**Rule:** Proposals with low alignment receive lowered priority or require additional justification.
 
-### Stage 4: Deep Analysis (optional, but recommended)
+### Stage 4: Deep Analysis (optional but recommended)
 **Skills:** `Optimizer-Philosopher` + `System-Dynamics-Thinker`  
 **Input:** Prioritised proposals  
 **Output:** `Systemic Analysis Report`
 
-**Task:** Evaluate second- and third-order consequences, find leverage points, analyse systemic effects.
+**Task:** Assess second/third-order consequences, find leverage points, analyse systemic effects.
 
 ### Stage 5: Experimentation
 **Skill:** `Experimenter`  
@@ -60,7 +56,7 @@ The cycle must be:
 
 **Mandatory rule:**
 - Before launching an experiment a **Value Alignment Assessment** is performed.
-- At low alignment levels the experiment is either adjusted or marked as `low_priority`.
+- If alignment is low the experiment is either corrected or marked as `low_priority`.
 
 ### Stage 6: Integration
 **Skill:** `Mental-Model-Updater`  
@@ -68,20 +64,20 @@ The cycle must be:
 **Output:** `Model Update Diff` + updated models
 
 **Additional rule:**
-- When there is significant impact on values or long-term direction, a report is formed for `Value-Clarifier`.
+- If there is a significant impact on values or long-term direction, a report is formed for `Value-Clarifier`.
 
 ### Stage 7: Antifragility (recommended)
 **Skill:** `Antifragility-Builder`  
 **Input:** Experiment results and model updates  
 **Output:** `Antifragility Insights`
 
-**Task:** Analyse how the system reacted to stress/experiment and what can be done to become stronger from similar situations in the future.
+**Task:** Analyse how the system reacted to the stress/experiment and what can be done to become stronger from similar situations in the future.
 
 ### Stage 8: Meta-Audit (on trigger)
 **Skill:** `Loop-Auditor`  
 **Launch triggers:**
 - Every 3–5 full cycles
-- Upon detection of anomalies
+- When anomalies are detected
 - On explicit request
 
 **Task:** Conduct a full audit of the loop, including:
@@ -94,19 +90,19 @@ The cycle must be:
 
 ## Cycle Types
 
-| Cycle Type          | Stages                         | When to use                          |
-|---------------------|--------------------------------|--------------------------------------|
-| **Full cycle**      | 1–7 + 8 (optional)             | Primary development mode             |
-| **Fast cycle**      | 1 → 2 → 5 → 6                  | Rapid idea testing                   |
-| **Audit cycle**     | Only `Loop-Auditor`            | Health check of the loop             |
-| **Value cycle**     | 2 → 3 → 4 → 8                  | When direction needs re-evaluation   |
+| Cycle Type         | Stages                         | When to use                          |
+|--------------------|--------------------------------|--------------------------------------|
+| **Full cycle**     | 1–7 + 8 (optional)             | Main development mode                |
+| **Quick cycle**    | 1 → 2 → 5 → 6                  | Rapid idea testing                   |
+| **Audit cycle**    | Only `Loop-Auditor`            | Checking loop health                 |
+| **Value cycle**    | 2 → 3 → 4 → 8                  | When direction needs re-evaluation   |
 
 ---
 
 ## Rules and Constraints
 
-1. **Value Alignment is non-optional**
-   - Any experiment that has not passed Value Alignment Assessment is considered invalid.
+1. **Value Alignment is not optional**
+   - Any experiment without passing Value Alignment Assessment is considered invalid.
 
 2. **Loop-Auditor has priority**
    - Its recommendations for changing interaction rules have the highest priority.
@@ -115,13 +111,13 @@ The cycle must be:
    - Every stage must leave a structured log.
 
 4. **Fault tolerance**
-   - On failure at any stage the cycle may be interrupted with state preserved and restarted from that stage.
+   - If a failure occurs at any stage the cycle can be interrupted with state preservation and restarted from that stage.
 
 ---
 
 ## Next Steps for Implementing this Protocol
 
-1. Create an `Orchestrator` capable of running stages in sequence.
+1. Create an `Orchestrator` that can run the stages in order.
 2. Define data formats (`Observation Report`, `Experiment Card`, etc.).
 3. Implement `Value Alignment Assessment` as a separate callable component.
 4. Add the ability to launch `Loop-Auditor` on a schedule or by triggers.

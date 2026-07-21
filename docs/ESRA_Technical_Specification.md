@@ -2,13 +2,8 @@
 **Technical Specification v1.1**
 
 **Date:** 19 July 2026  
-**Status:** Primary Specification (name updated)  
+**Status:** Primary Specification  
 **Author:** Grok (in co-authorship with the user)
-
-> **Naming Evolution Note**  
-> Previously the document was called ESDA — Evolutionary Self-Development Architecture.  
-> As of 19 July 2026 the official human-readable name is **ESRA — Evolutionary Self-Recursive Architecture**.  
-> Technical identifiers (`esda/`, `ESDAOrchestrator`, etc.) are temporarily retained.
 
 ---
 
@@ -24,7 +19,7 @@
 - **Game Theory + Systems Thinking** — analysis of skill interactions as a repeated game and search for leverage points.
 - **Antifragility** — the architecture must become stronger from stress, errors, and uncertainty.
 - **Observability** — all interactions are logged and available for audit.
-- **Evolvability** — the system is capable of reinforcing successful interaction patterns over time.
+- **Evolutionary nature** — the system is capable of strengthening successful interaction patterns over time.
 - **Recursivity** — the architecture improves itself through its own cycles.
 
 ---
@@ -33,20 +28,20 @@
 
 ESRA is organised into 8 levels:
 
-| Level | Name                        | Purpose                                           | Key Skill(s)                                      | Meta-role   |
-|-------|-----------------------------|---------------------------------------------------|---------------------------------------------------|-------------|
-| 0     | Runtime                     | Task execution and tool interaction               | Runtime Agent                                     | —           |
-| 1     | Reflective                  | Observation and analysis of own behaviour         | Self-Observer                                     | —           |
-| 2     | Value-oriented              | Maintenance and evolution of values and direction | Value-Clarifier                                   | High        |
-| 3     | Deep Analysis               | Philosophical and systemic analysis of consequences | Optimizer-Philosopher + System-Dynamics-Thinker | High        |
-| 4     | Experimental                | Design and testing of hypotheses                  | Experimenter                                      | Medium      |
-| 5     | Integrative                 | Updating of mental models                         | Mental-Model-Updater                              | High        |
-| 6     | Antifragile                 | Development of resilience to stress               | Antifragility-Builder                             | Medium      |
-| 7     | Meta                        | Audit and evolution of the architecture itself    | Loop-Auditor                                      | **Critical**|
+| Level | Name                        | Purpose                                      | Key Skill                         | Meta-role     |
+|-------|-----------------------------|----------------------------------------------|-----------------------------------|---------------|
+| 0     | Runtime                     | Task execution and tool use                  | Runtime Agent                     | —             |
+| 1     | Reflective                  | Observation and analysis of own behaviour    | Self-Observer                     | —             |
+| 2     | Value-oriented              | Support and evolution of values and direction| Value-Clarifier                   | High          |
+| 3     | Deep Analysis               | Philosophical and systemic consequence analysis | Optimizer-Philosopher + System-Dynamics-Thinker | High     |
+| 4     | Experimental                | Design and testing of hypotheses             | Experimenter                      | Medium        |
+| 5     | Integrative                 | Updating of mental models                    | Mental-Model-Updater              | High          |
+| 6     | Antifragile                 | Developing resilience to stress              | Antifragility-Builder             | Medium        |
+| 7     | Meta                        | Audit and evolution of the architecture itself | Loop-Auditor                    | **Critical**  |
 
 ---
 
-## 3. Components and Their Contracts
+## 3. Components and Contracts
 
 ### 3.1 Skill Contract (Common Skill Interface)
 
@@ -59,24 +54,24 @@ Every skill must implement the following contract:
 ## Output
 - Structured output + 
 - Confidence score (0.0–1.0)
-- Reasoning trace (optional, but recommended)
+- Reasoning trace (optional but recommended)
 
 ## Required output fields
-- `result`: primary result
-- `confidence`: confidence level
-- `justification`: brief rationale
+- `result`: main result
+- `confidence`: confidence
+- `justification`: brief justification
 - `suggested_next_skills`: list of skills to which control should be passed
 ```
 
 ### 3.2 Key Skills
 
-#### `Loop-Auditor` (Level 7) — The Most Important Component
+#### `Loop-Auditor` (Level 7) — The most important component
 
 **Responsibilities:**
 - Conduct periodic and on-demand audits of the entire loop.
 - Analyse skill interactions as a repeated game.
 - Search for suboptimal Nash equilibria.
-- Identify leverage points in the current architecture.
+- Find leverage points in the current architecture.
 - Propose structural changes to interaction rules.
 
 **Input:** Access to logs, call histories, current skill models.
@@ -86,8 +81,8 @@ Every skill must implement the following contract:
 #### `Experimenter` (Level 4)
 
 **Mandatory check:**
-- Before designing an experiment, `Value-Clarifier` must be invoked.
-- At low alignment levels the experiment receives reduced priority.
+- Before designing an experiment, `Value-Clarifier` must be called.
+- If alignment is low, the experiment receives lowered priority.
 
 ---
 
@@ -95,12 +90,12 @@ Every skill must implement the following contract:
 
 A **hybrid approach** is recommended:
 
-1. **Main flow** proceeds through levels 0 → 7.
-2. `Loop-Auditor` may intervene at any stage (especially after significant changes).
-3. When problems are detected, `Loop-Auditor` may:
+1. The main flow goes through levels 0 → 7.
+2. `Loop-Auditor` can intervene at any stage (especially after significant changes).
+3. When problems are detected, `Loop-Auditor` can:
    - Propose changes to interaction rules.
    - Lower the priority of certain skills.
-   - Initiate special "remedial" experiments.
+   - Initiate special “healing” experiments.
 
 ### Example of a typical cycle:
 
@@ -117,41 +112,40 @@ Self-Observer → Self-Improver → Value-Clarifier
 
 ## 5. State Storage and Versioning
 
-- All skill models and knowledge are stored in **Markdown** (convenient for LLMs).
+- All models and skill knowledge are stored in **Markdown** (convenient for LLMs).
 - Changes are versioned via Git (or equivalent).
 - `Mental-Model-Updater` works through a `diff` + commit mechanism.
-- `Loop-Auditor` may propose changes in the form of ready-made diffs.
+- `Loop-Auditor` can propose changes in the form of ready diffs.
 
 ---
 
 ## 6. Observability and Logging
 
-**Must be logged:**
-- All skill invocations (input → output)
+**Must log:**
+- All skill calls (input → output)
 - Experiment results
 - `Loop-Auditor` reports
 - Changes to values and models
 
-It is recommended to store logs in structured form (`JSONL` + indexing).
+It is recommended to store logs in a structured form (`JSONL` + indexing).
 
 ---
 
 ## 7. Safety and Fault-Tolerance Principles
 
-- When in doubt the system must prefer **conservative behaviour**.
-- `Loop-Auditor` has the right of "veto" over dangerous changes.
+- When in doubt the system should prefer **conservative behaviour**.
+- `Loop-Auditor` has the right to “veto” dangerous changes.
 - All significant changes must pass through a confirmation mechanism (human-in-the-loop in early stages).
 - A history of all architecture changes is maintained.
 
 ---
 
-## 8. Implementation Roadmap (Proposed)
+## 8. Implementation Roadmap (proposed)
 
 **Phase 1 — Foundation (current)**
 - Create project structure
 - Implement basic `Loop-Auditor`
 - Strengthen `Value Alignment` in `Experimenter`
-- Official transition to the name ESRA
 
 **Phase 2 — Living Cycle**
 - Implement `Orchestrator` + Event Bus
@@ -164,7 +158,6 @@ It is recommended to store logs in structured form (`JSONL` + indexing).
 **Phase 4 — Evolution**
 - Implement evolutionary dynamics mechanisms
 - Develop antifragility at the level of the entire loop
-- Migration of technical identifiers ESDA → ESRA
 
 ---
 

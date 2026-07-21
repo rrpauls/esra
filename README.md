@@ -61,7 +61,7 @@ This repository (`esra`) describes **what** the architecture is.
 
 Concrete implementations live in separate repositories:
 
-- **hermes-evolutionary-self-dev** — production-grade implementation as Hermes skills + orchestrator
+- **hermes-esra** — production-grade implementation as Hermes skills + orchestrator
 - (Future) Standalone Python engine, other runtimes, etc.
 
 ---

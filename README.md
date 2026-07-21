@@ -44,6 +44,16 @@ Core promise:
 
 ---
 
+## The ESRA Loop
+
+![ESRA Loop Diagram](docs/images/ESRA_Loop_Diagram.png)
+
+The architecture executes a principled cycle of observation, improvement, value alignment, deep analysis, safe experimentation, integration, and antifragility extraction. The **Loop-Auditor** operates at the meta-level, reviewing the evolutionary process itself every few cycles or on anomaly.
+
+Full stage definitions, inputs/outputs, cycle variants and rules are specified in the [Loop Execution Protocol](docs/ESRA_Loop_Execution_Protocol.md).
+
+---
+
 ## Design Principles
 
 - **Modularity** — every skill is an independent, versionable component

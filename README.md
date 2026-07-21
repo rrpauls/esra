@@ -2,11 +2,10 @@
 
 **The pure technical and conceptual description of the architecture.**
 
-> This repository contains the **essence** of ESRA: vision, principles, levels, skill contracts, control flow, the Loop Execution Protocol, and practical instructions.  
+> This repository contains the **essence** of ESRA: vision, principles, levels, skill contracts, control flow, and the Loop Execution Protocol.  
 > It is deliberately free of any specific runtime implementation (Hermes, Python engine, etc.).
 
-**Official name:** ESRA — Evolutionary Self-Recursive Architecture  
-**Previous names:** ESDA → SEDA → ESRA (adopted 19 July 2026)
+**Official name:** ESRA — Evolutionary Self-Recursive Architecture
 
 ---
 
@@ -27,7 +26,6 @@ Core promise:
 |----------|-------------|
 | [ESRA_Technical_Specification.md](docs/ESRA_Technical_Specification.md) | Vision, principles, 8-level architecture, skill contracts, control flow, observability, safety |
 | [ESRA_Loop_Execution_Protocol.md](docs/ESRA_Loop_Execution_Protocol.md) | Detailed 8-stage cycle, types of cycles, rules, and constraints |
-| [ESRA_Practical_Instructions.md](docs/ESRA_Practical_Instructions.md) | Living practical guide — how to run, extend, and evolve the architecture |
 
 ---
 
@@ -63,7 +61,7 @@ This repository (`esra`) describes **what** the architecture is.
 
 Concrete implementations live in separate repositories:
 
-- **[hermes-evolutionary-self-dev](https://github.com/rrpauls/hermes-evolutionary-self-dev)** — production-grade implementation as Hermes skills + orchestrator
+- **hermes-evolutionary-self-dev** — production-grade implementation as Hermes skills + orchestrator
 - (Future) Standalone Python engine, other runtimes, etc.
 
 ---
@@ -72,8 +70,7 @@ Concrete implementations live in separate repositories:
 
 1. Read the Technical Specification for the full conceptual model.
 2. Read the Loop Execution Protocol to understand how a single cycle actually runs.
-3. Use the Practical Instructions to start applying and evolving the architecture.
-4. Use these documents as the source of truth when implementing or auditing any runtime.
+3. Use these documents as the source of truth when implementing or auditing any runtime.
 
 ---
 

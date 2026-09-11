@@ -1,11 +1,24 @@
 # ESRA — Evolutionary Self-Recursive Architecture
 
-**The pure technical and conceptual description of the architecture.**
+<p align="center">
+  <img src="assets/logo.png" alt="ESRA — Evolutionary Self-Recursive Architecture logo" width="240"/>
+</p>
 
-> This repository contains the **essence** of ESRA: vision, principles, levels, skill contracts, control flow, and the Loop Execution Protocol.  
-> It is deliberately free of any specific runtime implementation (Hermes, Python engine, etc.).
+<p align="center">
+  <strong>The runtime-neutral technical and conceptual specification of ESRA</strong>
+</p>
 
-**Official name:** ESRA — Evolutionary Self-Recursive Architecture
+<p align="center">
+  Vision, principles, levels, skill contracts, control flow, and the Loop Execution Protocol for auditable self-development.
+</p>
+
+<p align="center">
+  <a href="docs/ESRA_Technical_Specification.md">Technical specification</a> ·
+  <a href="docs/ESRA_Loop_Execution_Protocol.md">Loop protocol</a> ·
+  <a href="https://github.com/rrpauls/hermes-esra">Hermes Agent implementation</a> ·
+  <a href="https://github.com/rrpauls/chatgpt-esra">OpenAI implementation</a> ·
+  <a href="LICENSE">MIT License</a>
+</p>
 
 ---
 

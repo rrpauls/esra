@@ -17,6 +17,7 @@
   <a href="docs/ESRA_Loop_Execution_Protocol.md">Loop protocol</a> ·
   <a href="https://github.com/rrpauls/hermes-esra">Hermes Agent implementation</a> ·
   <a href="https://github.com/rrpauls/chatgpt-esra">OpenAI implementation</a> ·
+  <a href="https://github.com/rrpauls/claude-esra">Claude implementation</a> ·
   <a href="LICENSE">MIT License</a>
 </p>
 
@@ -85,6 +86,8 @@ This repository (`esra`) describes **what** the architecture is.
 Concrete implementations live in separate repositories:
 
 - **[hermes-esra](https://github.com/rrpauls/hermes-esra)** — production-grade implementation as Hermes skills + orchestrator
+- **[chatgpt-esra](https://github.com/rrpauls/chatgpt-esra)** — OpenAI implementation for ChatGPT and Codex
+- **[claude-esra](https://github.com/rrpauls/claude-esra)** — Claude implementation
 - (Future) Standalone Python engine, other runtimes, etc.
 
 ---

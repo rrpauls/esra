@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/rrpauls/esra/main/schemas/audit-report.schema.json",
+  "title": "ESRA Audit Report",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "scope",
+    "evidence",
+    "findings",
+    "history_status"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "protocol_version": {"const": "1.2"},
+    "scope": {"type": "string", "minLength": 1},
+    "evidence": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["severity", "statement", "evidence", "recommendation"],
+        "properties": {
+          "severity": {"enum": ["critical", "high", "medium", "low"]},
+          "statement": {"type": "string", "minLength": 1},
+          "evidence": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1},
+            "minItems": 1
+          },
+          "recommendation": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "history_status": {"enum": ["available", "partial", "unknown"]},
+    "next_review_condition": {"type": "string"}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/rrpauls/esra/main/schemas/alignment-assessment.schema.json",
+  "title": "ESRA Value Alignment Assessment",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "proposal_id",
+    "score",
+    "minimum_score",
+    "decision",
+    "justification"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "protocol_version": {"const": "1.2"},
+    "proposal_id": {"type": "string", "minLength": 1},
+    "score": {"type": "number", "minimum": 0, "maximum": 1},
+    "minimum_score": {"type": "number", "minimum": 0, "maximum": 1},
+    "decision": {"enum": ["allow", "revise", "block"]},
+    "justification": {"type": "string", "minLength": 1},
+    "conditions": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    }
+  },
+  "additionalProperties": false
+}

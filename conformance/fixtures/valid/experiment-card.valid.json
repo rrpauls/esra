@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_version": "1.2",
+  "id": "experiment-001",
+  "hypothesis": "The candidate reduces repeated failures.",
+  "mode": "canary",
+  "baseline": "current workflow",
+  "candidate": "revised workflow",
+  "guardrails": ["No increase in task failure rate."],
+  "stopping_rule": "Stop on any guardrail breach.",
+  "alignment": {
+    "schema_version": "1.0.0",
+    "protocol_version": "1.2",
+    "proposal_id": "proposal-001",
+    "score": 0.9,
+    "minimum_score": 0.6,
+    "decision": "allow",
+    "justification": "The experiment is bounded and reversible."
+  },
+  "status": "ready"
+}

@@ -15,10 +15,11 @@
 <p align="center">
   <a href="docs/ESRA_Technical_Specification.md">Technical specification</a> ·
   <a href="docs/ESRA_Loop_Execution_Protocol.md">Loop protocol</a> ·
+  <a href="docs/ESRA_Data_Contracts.md">Data contracts</a> ·
   <a href="https://github.com/rrpauls/hermes-esra">Hermes Agent implementation</a> ·
   <a href="https://github.com/rrpauls/chatgpt-esra">OpenAI implementation</a> ·
   <a href="https://github.com/rrpauls/claude-esra">Claude implementation</a> ·
-  <a href="LICENSE">MIT License</a>
+  <a href="LICENSE">Apache-2.0 License</a>
 </p>
 
 ---
@@ -40,6 +41,7 @@ Core promise:
 |----------|-------------|
 | [ESRA_Technical_Specification.md](docs/ESRA_Technical_Specification.md) | Vision, principles, 8-level architecture, skill contracts, control flow, observability, safety |
 | [ESRA_Loop_Execution_Protocol.md](docs/ESRA_Loop_Execution_Protocol.md) | Detailed 8-stage cycle, types of cycles, rules, and constraints |
+| [ESRA_Data_Contracts.md](docs/ESRA_Data_Contracts.md) | Versioned JSON contracts and implementation capability declarations |
 
 ---
 

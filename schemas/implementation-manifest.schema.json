@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/rrpauls/esra/main/schemas/implementation-manifest.schema.json",
+  "title": "ESRA Implementation Manifest",
+  "type": "object",
+  "required": [
+    "implementation",
+    "implementation_version",
+    "protocol_version",
+    "runtime",
+    "capabilities"
+  ],
+  "properties": {
+    "implementation": {"type": "string", "minLength": 1},
+    "implementation_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$"
+    },
+    "protocol_version": {"const": "1.2"},
+    "runtime": {"type": "string", "minLength": 1},
+    "capabilities": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"$ref": "#/$defs/capability"}
+    }
+  },
+  "$defs": {
+    "capability": {
+      "type": "object",
+      "required": ["status", "evidence"],
+      "properties": {
+        "status": {
+          "enum": ["implemented", "verified", "simulated", "planned", "not-applicable"]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "minItems": 1
+        },
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

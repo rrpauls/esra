@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/rrpauls/esra/main/schemas/cycle-event.schema.json",
+  "title": "ESRA Cycle Event",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "id",
+    "timestamp",
+    "implementation",
+    "event_type",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "protocol_version": {"const": "1.2"},
+    "id": {"type": "string", "minLength": 1},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "implementation": {"type": "string", "minLength": 1},
+    "event_type": {
+      "enum": [
+        "observation",
+        "alignment",
+        "experiment",
+        "integration",
+        "audit",
+        "trigger"
+      ]
+    },
+    "outcome": {
+      "enum": ["success", "failure", "partial", "inconclusive", "not-run"]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "payload": {"type": "object"}
+  },
+  "additionalProperties": false
+}

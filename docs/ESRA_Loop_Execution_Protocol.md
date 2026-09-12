@@ -118,7 +118,8 @@ The cycle must be:
 ## Next Steps for Implementing this Protocol
 
 1. Create an `Orchestrator` capable of running stages in sequence.
-2. Define data formats (`Observation Report`, `Experiment Card`, etc.).
+2. Evolve the initial data formats in `schemas/` using the compatibility
+   rules in `docs/ESRA_Data_Contracts.md`.
 3. Implement `Value Alignment Assessment` as a separate callable component.
 4. Add the ability to launch `Loop-Auditor` on a schedule or by triggers.
 

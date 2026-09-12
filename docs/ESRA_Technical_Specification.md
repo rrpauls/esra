@@ -122,6 +122,8 @@ This Specification deliberately does not duplicate that content.
 - Changes to values and models
 
 It is recommended to store logs in structured form (`JSONL` + indexing).
+Normative portable record shapes and versioning rules are defined in
+`docs/ESRA_Data_Contracts.md` and `schemas/`.
 
 ---
 

@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_version": "1.2",
+  "id": "event-001",
+  "timestamp": "2026-09-12T18:00:00Z",
+  "implementation": "example-esra",
+  "event_type": "trigger",
+  "outcome": "not-run",
+  "evidence": ["trigger score exceeded threshold"],
+  "payload": {"recommended": true}
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_version": "1.2",
+  "scope": "Example implementation maturity claims",
+  "evidence": ["source review", "test output"],
+  "findings": [
+    {
+      "severity": "high",
+      "statement": "A simulated capability was described as verified.",
+      "evidence": ["the helper returns fixed scores"],
+      "recommendation": "Label it simulated until an end-to-end test exists."
+    }
+  ],
+  "history_status": "partial",
+  "next_review_condition": "Review after host integration evidence is available."
+}

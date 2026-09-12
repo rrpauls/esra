@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/rrpauls/esra/main/schemas/model-update.schema.json",
+  "title": "ESRA Model Update",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "prior_assumption",
+    "new_evidence",
+    "revised_rule",
+    "confidence",
+    "revisit_condition"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "protocol_version": {"const": "1.2"},
+    "prior_assumption": {"type": "string", "minLength": 1},
+    "new_evidence": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1
+    },
+    "revised_rule": {"type": "string", "minLength": 1},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "revisit_condition": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

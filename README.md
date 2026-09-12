@@ -27,12 +27,13 @@
 
 ## What is ESRA?
 
-ESRA is a modular, meta-reflective architecture that enables autonomous agents (and human-AI teams) to perform **deliberate, long-term, value-aligned, and antifragile self-development**.
+ESRA is a modular, meta-reflective architecture for structuring **deliberate,
+long-term, value-aligned improvement** in autonomous agents and human-AI teams.
 
 It turns ad-hoc improvement into a structured, observable, auditable, and self-improving evolutionary process.
 
-Core promise:  
-**The more the system is used and stressed in controlled, value-aligned ways, the stronger and more capable it becomes at self-development.**
+Design goal: controlled, value-aligned use and stress should produce observable,
+testable improvements rather than assumed self-development.
 
 ---
 
@@ -43,6 +44,7 @@ Core promise:
 | [ESRA_Technical_Specification.md](docs/ESRA_Technical_Specification.md) | Vision, principles, 8-level architecture, skill contracts, control flow, observability, safety |
 | [ESRA_Loop_Execution_Protocol.md](docs/ESRA_Loop_Execution_Protocol.md) | Detailed 8-stage cycle, types of cycles, rules, and constraints |
 | [ESRA_Data_Contracts.md](docs/ESRA_Data_Contracts.md) | Versioned JSON contracts and implementation capability declarations |
+| [compatibility-matrix.json](conformance/compatibility-matrix.json) | Machine-readable exporter coverage across current implementations |
 
 ---
 
@@ -65,7 +67,10 @@ Core promise:
 
 ![ESRA Loop Diagram](docs/images/ESRA_Loop_Diagram.png)
 
-The architecture executes a principled cycle of observation, improvement, value alignment, deep analysis, safe experimentation, integration, and antifragility extraction. The **Loop-Auditor** operates at the meta-level, reviewing the evolutionary process itself every few cycles or on anomaly.
+The protocol defines a cycle of observation, improvement, value alignment, deep
+analysis, safe experimentation, integration, and resilience learning. The
+**Loop-Auditor** operates at the meta-level, reviewing recorded cycles on a
+configured cadence or after an anomaly.
 
 Full stage definitions, inputs/outputs, cycle variants and rules are specified in the [Loop Execution Protocol](docs/ESRA_Loop_Execution_Protocol.md).
 
@@ -76,7 +81,7 @@ Full stage definitions, inputs/outputs, cycle variants and rules are specified i
 - **Modularity** — every skill is an independent, versionable component
 - **Meta-level** — the system can observe and improve its own improvement process
 - **Value Alignment** — non-negotiable gate before significant actions
-- **Antifragility** — the system must gain from controlled stress and failure
+- **Antifragility as a hypothesis** — gains from controlled stress and failure must be demonstrated
 - **Observability & Auditability** — everything is loggable and inspectable
 - **Recursivity** — the architecture improves itself through its own loops
 
@@ -88,7 +93,7 @@ This repository (`esra`) describes **what** the architecture is.
 
 Concrete implementations live in separate repositories:
 
-- **[hermes-esra](https://github.com/rrpauls/hermes-esra)** — production-grade implementation as Hermes skills + orchestrator
+- **[hermes-esra](https://github.com/rrpauls/hermes-esra)** — validated Hermes skills and integration toolkit
 - **[chatgpt-esra](https://github.com/rrpauls/chatgpt-esra)** — OpenAI implementation for ChatGPT and Codex
 - **[claude-esra](https://github.com/rrpauls/claude-esra)** — Claude implementation
 - (Future) Standalone Python engine, other runtimes, etc.
@@ -99,9 +104,13 @@ Concrete implementations live in separate repositories:
 
 1. Read the Technical Specification for the full conceptual model.
 2. Read the Loop Execution Protocol to understand how a single cycle actually runs.
-3. Use these documents as the source of truth when implementing or auditing any runtime.
+3. Use the Data Contracts and compatibility matrix when implementing or auditing a runtime adapter.
+
+## License
+
+Apache-2.0 — see [LICENSE](LICENSE). Attribution is recorded in [NOTICE](NOTICE).
 
 ---
 
-**ESRA is a living architecture.**  
+**ESRA is a living architecture.**
 This repository evolves together with the system it describes.

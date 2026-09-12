@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/rrpauls/esra/main/schemas/benchmark-result.schema.json",
+  "title": "ESRA Exporter Benchmark Result",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "benchmark_type",
+    "run_id",
+    "generated_at",
+    "status",
+    "summary",
+    "results"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "protocol_version": {"const": "1.2"},
+    "benchmark_type": {"const": "exporter-conformance"},
+    "run_id": {"type": "string", "format": "uuid"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "status": {"enum": ["pass", "fail"]},
+    "summary": {
+      "type": "object",
+      "required": [
+        "implementations",
+        "total_cases",
+        "passed_cases",
+        "failed_cases",
+        "pass_rate",
+        "event_count",
+        "output_bytes",
+        "duration_ms",
+        "schema_errors",
+        "privacy_violations"
+      ],
+      "properties": {
+        "implementations": {"type": "integer", "minimum": 1},
+        "total_cases": {"type": "integer", "minimum": 1},
+        "passed_cases": {"type": "integer", "minimum": 0},
+        "failed_cases": {"type": "integer", "minimum": 0},
+        "pass_rate": {"type": "number", "minimum": 0, "maximum": 1},
+        "event_count": {"type": "integer", "minimum": 0},
+        "output_bytes": {"type": "integer", "minimum": 0},
+        "duration_ms": {"type": "number", "minimum": 0},
+        "schema_errors": {"type": "integer", "minimum": 0},
+        "privacy_violations": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "results": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/case_result"}
+    }
+  },
+  "$defs": {
+    "case_result": {
+      "type": "object",
+      "required": [
+        "implementation",
+        "implementation_version",
+        "scenario_id",
+        "required",
+        "status",
+        "duration_ms",
+        "event_count",
+        "output_bytes",
+        "deterministic",
+        "schema_errors",
+        "privacy_violations",
+        "errors"
+      ],
+      "properties": {
+        "implementation": {"type": "string", "minLength": 1},
+        "implementation_version": {"type": "string", "minLength": 1},
+        "scenario_id": {"type": "string", "minLength": 1},
+        "required": {"type": "boolean"},
+        "status": {"enum": ["pass", "fail"]},
+        "duration_ms": {"type": "number", "minimum": 0},
+        "event_count": {"type": "integer", "minimum": 0},
+        "output_bytes": {"type": "integer", "minimum": 0},
+        "deterministic": {"type": "boolean"},
+        "schema_errors": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "privacy_violations": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "errors": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

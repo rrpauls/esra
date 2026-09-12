@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_version": "1.2",
+  "id": "malformed-record",
+  "description": "A structurally malformed source record is ignored without inventing an event.",
+  "required": true,
+  "records": [
+    {"record_type": "malformed"}
+  ],
+  "expected": {
+    "event_count": 0,
+    "event_types": [],
+    "outcomes": [],
+    "forbidden_values": []
+  }
+}

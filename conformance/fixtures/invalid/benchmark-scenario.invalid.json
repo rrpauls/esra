@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_version": "1.2",
+  "id": "INVALID ID",
+  "description": "Invalid scenario ID.",
+  "required": true,
+  "records": [],
+  "expected": {
+    "event_count": 0,
+    "event_types": [],
+    "outcomes": [],
+    "forbidden_values": []
+  }
+}

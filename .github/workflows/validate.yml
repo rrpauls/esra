@@ -38,3 +38,18 @@ jobs:
           test -s docs/ESRA_Loop_Execution_Protocol.md
           test -s docs/ESRA_Data_Contracts.md
       - run: python -m unittest discover -s conformance -v
+      - name: Run cross-implementation exporter benchmark
+        run: |
+          python benchmarks/run.py \
+            --implementations-root implementations \
+            --json-output "$RUNNER_TEMP/esra-benchmark.json" \
+            --markdown-output "$RUNNER_TEMP/esra-benchmark.md"
+      - name: Upload benchmark evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: esra-exporter-benchmark
+          path: |
+            ${{ runner.temp }}/esra-benchmark.json
+            ${{ runner.temp }}/esra-benchmark.md
+          if-no-files-found: error

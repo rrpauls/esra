@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/rrpauls/esra/main/schemas/benchmark-scenario.schema.json",
+  "title": "ESRA Exporter Benchmark Scenario",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "id",
+    "description",
+    "required",
+    "records",
+    "expected"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "protocol_version": {"const": "1.2"},
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "description": {"type": "string", "minLength": 1},
+    "required": {"type": "boolean"},
+    "records": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/record"}
+    },
+    "expected": {
+      "type": "object",
+      "required": ["event_count", "event_types", "outcomes", "forbidden_values"],
+      "properties": {
+        "event_count": {"type": "integer", "minimum": 0},
+        "event_types": {
+          "type": "array",
+          "items": {"enum": ["observation", "alignment", "experiment", "integration", "audit", "trigger"]}
+        },
+        "outcomes": {
+          "type": "array",
+          "items": {"enum": ["success", "failure", "partial", "inconclusive", "not-run", "absent"]}
+        },
+        "forbidden_values": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "record": {
+      "type": "object",
+      "required": ["record_type"],
+      "properties": {
+        "record_type": {
+          "enum": ["completed-cycle", "trigger-recommendation", "malformed"]
+        },
+        "timestamp": {"type": "string"},
+        "source_id": {"type": "string", "minLength": 1},
+        "success": {"type": "boolean"},
+        "recommended": {"type": "boolean"},
+        "evidence": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "private_values": {
+          "type": "object",
+          "additionalProperties": {"type": "string", "minLength": 1}
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

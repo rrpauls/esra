@@ -23,6 +23,8 @@ agent orchestration mechanism.
 | `model-update.schema.json` | Records evidence-backed working-rule changes |
 | `audit-report.schema.json` | Records scoped findings without inventing missing history |
 | `conformance-matrix.schema.json` | Describes portable exporters across implementations |
+| `benchmark-scenario.schema.json` | Defines runtime-neutral synthetic exporter scenarios |
+| `benchmark-result.schema.json` | Records aggregated, machine-readable exporter benchmark evidence |
 
 All schemas live in [`schemas/`](../schemas/).
 
@@ -57,6 +59,23 @@ The machine-readable cross-implementation view is
 [`conformance/compatibility-matrix.json`](../conformance/compatibility-matrix.json).
 Its `verified` status means that repository tests exercise the adapter and its
 privacy boundary. It does not prove host-native lifecycle integration.
+
+## Exporter benchmark
+
+The canonical benchmark under [`benchmarks/`](../benchmarks/) translates the
+same synthetic semantic records into each implementation's native storage
+layout, invokes each exporter as a subprocess, and validates the resulting
+JSONL. Every required scenario must pass schema, semantic, privacy, and
+byte-for-byte repeatability checks.
+
+Duration and output size are recorded as baseline observations only. They are
+not conformance gates because shared CI runner load is not stable enough for a
+portable performance threshold. Missing implementation checkouts and manifests
+that do not declare protocol 1.2 are required failures.
+
+This automated benchmark remains separate from the manual host pilot described
+in [`ESRA_Host_Pilot_Protocol.md`](ESRA_Host_Pilot_Protocol.md). Exporter
+conformance is not evidence of native host lifecycle behavior.
 
 ## Conformance
 

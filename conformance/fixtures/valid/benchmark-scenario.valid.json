@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_version": "1.2",
+  "id": "fixture-cycle",
+  "description": "Minimal valid benchmark scenario.",
+  "required": true,
+  "records": [{"record_type": "completed-cycle", "success": true}],
+  "expected": {
+    "event_count": 1,
+    "event_types": ["integration"],
+    "outcomes": ["success"],
+    "forbidden_values": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_version": "1.2",
+  "id": "recommended-not-run",
+  "description": "A recommendation that was not executed remains a not-run trigger event.",
+  "required": true,
+  "records": [
+    {
+      "record_type": "trigger-recommendation",
+      "timestamp": "2026-09-12T18:01:00Z",
+      "source_id": "benchmark-trigger-1",
+      "recommended": true
+    }
+  ],
+  "expected": {
+    "event_count": 1,
+    "event_types": ["trigger"],
+    "outcomes": ["not-run"],
+    "forbidden_values": []
+  }
+}

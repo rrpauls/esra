@@ -16,6 +16,7 @@
   <a href="docs/ESRA_Technical_Specification.md">Technical specification</a> ·
   <a href="docs/ESRA_Loop_Execution_Protocol.md">Loop protocol</a> ·
   <a href="docs/ESRA_Data_Contracts.md">Data contracts</a> ·
+  <a href="docs/ESRA_Benchmarking.md">Benchmark</a> ·
   <a href="conformance/compatibility-matrix.json">Compatibility matrix</a> ·
   <a href="https://github.com/rrpauls/hermes-esra">Hermes Agent implementation</a> ·
   <a href="https://github.com/rrpauls/chatgpt-esra">OpenAI implementation</a> ·
@@ -45,6 +46,8 @@ testable improvements rather than assumed self-development.
 | [ESRA_Loop_Execution_Protocol.md](docs/ESRA_Loop_Execution_Protocol.md) | Detailed 8-stage cycle, types of cycles, rules, and constraints |
 | [ESRA_Data_Contracts.md](docs/ESRA_Data_Contracts.md) | Versioned JSON contracts and implementation capability declarations |
 | [compatibility-matrix.json](conformance/compatibility-matrix.json) | Machine-readable exporter coverage across current implementations |
+| [ESRA_Benchmarking.md](docs/ESRA_Benchmarking.md) | Reproducible exporter-conformance benchmark and interpretation boundaries |
+| [ESRA_Host_Pilot_Protocol.md](docs/ESRA_Host_Pilot_Protocol.md) | Controlled cross-host behavior pilot with evidence requirements |
 
 ---
 
@@ -105,6 +108,13 @@ Concrete implementations live in separate repositories:
 1. Read the Technical Specification for the full conceptual model.
 2. Read the Loop Execution Protocol to understand how a single cycle actually runs.
 3. Use the Data Contracts and compatibility matrix when implementing or auditing a runtime adapter.
+4. Run the exporter benchmark before changing portability claims:
+
+   ```bash
+   python3 benchmarks/run.py --implementations-root ..
+   ```
+
+5. Use the Host Pilot Protocol before making claims about native host behavior.
 
 ## License
 

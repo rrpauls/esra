@@ -136,25 +136,24 @@ Normative portable record shapes and versioning rules are defined in
 
 ---
 
-## 8. Implementation Roadmap (Proposed)
+## 8. Implementation Maturity and Roadmap
 
-**Phase 1 — Foundation (current)**
-- Create project structure
-- Implement basic `Loop-Auditor`
-- Strengthen `Value Alignment` in `Experimenter`
-- Official transition to the name ESRA
+Maturity is reported from reproducible evidence rather than inferred from the
+architecture diagram or the presence of a skill file.
 
-**Phase 2 — Living Cycle**
-- Implement `Orchestrator` + Event Bus
-- Connect `Self-Observer` + `Self-Improver` + `Experimenter`
+| Area | Current maturity | Evidence and boundary |
+|---|---|---|
+| Foundation and governance | Verified | Apache-2.0 licensing, contribution rules, this specification, and repository CI |
+| Portable data contracts | Verified | Draft 2020-12 schemas, positive/negative fixtures, and ESRA 1.2 conformance manifests |
+| Portable cycle-event export | Verified for synthetic fixtures | Cross-implementation exporter tests and the [benchmark](ESRA_Benchmarking.md); this does not prove native lifecycle integration |
+| Bounded host behavior | Pilot-ready, not cross-host verified | The [host pilot protocol](ESRA_Host_Pilot_Protocol.md) defines nine required host/scenario cases; results are not yet claimed |
+| Living-cycle orchestration | Implementation-specific | Skill-based orchestration exists, while automatic execution is not assumed and Hermes native lifecycle integration remains planned |
+| Depth and evolutionary dynamics | Proposed or implementation-specific | `Optimizer-Philosopher`, `System-Dynamics-Thinker`, mental-model updating, and antifragility require host evidence before architecture-wide maturity claims |
 
-**Phase 3 — Depth**
-- Add `Optimizer-Philosopher` and `System-Dynamics-Thinker`
-- Improve `Mental-Model-Updater`
-
-**Phase 4 — Evolution**
-- Implement evolutionary dynamics mechanisms
-- Develop antifragility at the level of the entire loop
+The next release gate is completion of the host pilot, reconciliation of its
+evidence with implementation manifests, and maintainer review. An Event Bus or
+separate Codex implementation should be introduced only if runtime evidence
+shows that existing adapters cannot preserve the protocol boundary.
 
 ---
 

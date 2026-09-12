@@ -67,6 +67,23 @@ class ContractTests(unittest.TestCase):
                         load_json(path)
                     )
 
+    def test_compatibility_matrix_covers_known_implementations(self):
+        matrix = load_json(FIXTURES_DIR.parent / "compatibility-matrix.json")
+        self.validator("conformance-matrix").validate(matrix)
+        entries = {
+            item["implementation"]: item for item in matrix["implementations"]
+        }
+        self.assertEqual(len(matrix["implementations"]), 3)
+        self.assertEqual(
+            set(entries), {"chatgpt-esra", "claude-esra", "hermes-esra"}
+        )
+        for implementation, entry in entries.items():
+            with self.subTest(implementation=implementation):
+                self.assertEqual(entry["exporter"]["status"], "verified")
+                self.assertIn(
+                    "cycle-event@1.0.0", entry["exporter"]["record_formats"]
+                )
+
 
 if __name__ == "__main__":
     unittest.main()

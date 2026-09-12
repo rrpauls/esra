@@ -22,6 +22,7 @@ agent orchestration mechanism.
 | `experiment-card.schema.json` | Defines a bounded experiment before execution |
 | `model-update.schema.json` | Records evidence-backed working-rule changes |
 | `audit-report.schema.json` | Records scoped findings without inventing missing history |
+| `conformance-matrix.schema.json` | Describes portable exporters across implementations |
 
 All schemas live in [`schemas/`](../schemas/).
 
@@ -38,6 +39,24 @@ All schemas live in [`schemas/`](../schemas/).
   `implemented`, `verified`, `simulated`, and `planned` capabilities.
 - Existing implementation-specific logs need not be rewritten. Adapters may
   map legacy records into these contracts at export boundaries.
+
+## Portable event export
+
+Conforming implementations expose an explicit, read-only exporter that emits
+one `cycle-event@1.0.0` JSON object per line. Exporters must:
+
+- preserve the implementation's existing storage format;
+- emit deterministic identifiers when a legacy record has no identifier;
+- normalize timestamps to RFC 3339 with an offset;
+- map unavailable or blocked execution to `not-run` rather than success;
+- export only an allowlisted payload and omit prompts, transcripts, raw session
+  identifiers, command output, and hidden reasoning;
+- identify source records through concise evidence references.
+
+The machine-readable cross-implementation view is
+[`conformance/compatibility-matrix.json`](../conformance/compatibility-matrix.json).
+Its `verified` status means that repository tests exercise the adapter and its
+privacy boundary. It does not prove host-native lifecycle integration.
 
 ## Conformance
 

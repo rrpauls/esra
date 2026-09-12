@@ -1,0 +1,37 @@
+{
+  "matrix_version": "1.0.0",
+  "protocol_version": "1.2",
+  "implementations": [
+    {
+      "implementation": "chatgpt-esra",
+      "manifest": "https://raw.githubusercontent.com/rrpauls/chatgpt-esra/main/esra-conformance.json",
+      "exporter": {
+        "status": "verified",
+        "command": "python3 scripts/esra_export.py --data-dir DATA --output events.jsonl",
+        "record_formats": ["cycle-event@1.0.0"],
+        "evidence": ["https://github.com/rrpauls/chatgpt-esra/blob/main/tests/test_export.py"]
+      }
+    },
+    {
+      "implementation": "claude-esra",
+      "manifest": "https://raw.githubusercontent.com/rrpauls/claude-esra/main/esra-conformance.json",
+      "exporter": {
+        "status": "verified",
+        "command": "python3 scripts/esra_export.py --data-dir DATA --output events.jsonl",
+        "record_formats": ["cycle-event@1.0.0"],
+        "evidence": ["https://github.com/rrpauls/claude-esra/blob/main/tests/test_export.py"]
+      }
+    },
+    {
+      "implementation": "hermes-esra",
+      "manifest": "https://raw.githubusercontent.com/rrpauls/hermes-esra/main/esra-conformance.json",
+      "exporter": {
+        "status": "verified",
+        "command": "python3 tools/esra_export.py --data-dir HERMES_HOME --output events.jsonl",
+        "record_formats": ["cycle-event@1.0.0"],
+        "evidence": ["https://github.com/rrpauls/hermes-esra/blob/main/tests/test_export.py"],
+        "notes": "Exports trigger recommendations and recorded cycle logs; it does not imply a native lifecycle hook."
+      }
+    }
+  ]
+}

@@ -12,6 +12,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+      - uses: actions/checkout@v5
+        with:
+          repository: rrpauls/chatgpt-esra
+          path: implementations/chatgpt-esra
+      - uses: actions/checkout@v5
+        with:
+          repository: rrpauls/claude-esra
+          path: implementations/claude-esra
+      - uses: actions/checkout@v5
+        with:
+          repository: rrpauls/hermes-esra
+          path: implementations/hermes-esra
       - uses: actions/setup-python@v6
         with:
           python-version: "3.11"

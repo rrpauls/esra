@@ -16,6 +16,7 @@
   <a href="docs/ESRA_Technical_Specification.md">Technical specification</a> ·
   <a href="docs/ESRA_Loop_Execution_Protocol.md">Loop protocol</a> ·
   <a href="docs/ESRA_Data_Contracts.md">Data contracts</a> ·
+  <a href="conformance/compatibility-matrix.json">Compatibility matrix</a> ·
   <a href="https://github.com/rrpauls/hermes-esra">Hermes Agent implementation</a> ·
   <a href="https://github.com/rrpauls/chatgpt-esra">OpenAI implementation</a> ·
   <a href="https://github.com/rrpauls/claude-esra">Claude implementation</a> ·

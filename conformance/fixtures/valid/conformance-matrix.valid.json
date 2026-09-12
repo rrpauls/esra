@@ -1,0 +1,16 @@
+{
+  "matrix_version": "1.0.0",
+  "protocol_version": "1.2",
+  "implementations": [
+    {
+      "implementation": "example-esra",
+      "manifest": "https://example.com/esra-conformance.json",
+      "exporter": {
+        "status": "verified",
+        "command": "python scripts/esra_export.py --data-dir DATA --output events.jsonl",
+        "record_formats": ["cycle-event@1.0.0"],
+        "evidence": ["tests/test_export.py"]
+      }
+    }
+  ]
+}

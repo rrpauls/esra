@@ -4,6 +4,9 @@
 **Status:** Pilot-ready; no cross-host result is claimed until the runs below
 are completed and their sanitized evidence is reviewed.
 
+The latest execution status is recorded in the
+[`2026-09-13 preflight`](../conformance/host-pilots/2026-09-13-preflight.md).
+
 ## Purpose and boundary
 
 This protocol evaluates observable behavior in ChatGPT/Codex, Claude Code, and

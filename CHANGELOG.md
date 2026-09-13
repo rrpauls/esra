@@ -15,6 +15,8 @@ contracts; the overall specification remains pre-1.0.
   empty input, malformed records, and invalid timestamps.
 - A separate host behavior pilot protocol for ChatGPT/Codex, Claude Code, and
   Hermes Agent.
+- A sanitized preliminary Codex pilot record; it remains outside the release
+  gate because the installed plugin version was older than the current source.
 
 ### Changed
 

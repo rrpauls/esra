@@ -1,5 +1,9 @@
 # ESRA — Evolutionary Self-Recursive Architecture
 
+[![Validate specification](https://github.com/rrpauls/esra/actions/workflows/validate.yml/badge.svg)](https://github.com/rrpauls/esra/actions/workflows/validate.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
+[![Specification: ESRA 1.2](https://img.shields.io/badge/Specification-ESRA%201.2-6f42c1.svg)](docs/ESRA_Technical_Specification.md)
+
 <p align="center">
   <img src="assets/logo.png" alt="ESRA — Evolutionary Self-Recursive Architecture logo" width="240"/>
 </p>
@@ -9,7 +13,7 @@
 </p>
 
 <p align="center">
-  Vision, principles, levels, skill contracts, control flow, and the Loop Execution Protocol for auditable self-development.
+  Specification, data contracts, conformance tests, and host-pilot gates for auditable agent improvement.
 </p>
 
 <p align="center">
@@ -36,6 +40,25 @@ It turns ad-hoc improvement into a structured, observable, auditable, and self-i
 
 Design goal: controlled, value-aligned use and stress should produce observable,
 testable improvements rather than assumed self-development.
+
+ESRA is not a claim of phenomenal consciousness or autonomous model learning.
+It specifies observable workflows, evidence boundaries, and tests for agent-level
+improvement processes without implying changes to model weights.
+
+## Current status
+
+- **Specification:** ESRA 1.2, runtime-neutral and licensed under Apache-2.0.
+- **Canonical implementation:**
+  [`esra-agents`](https://github.com/rrpauls/esra-agents), currently released as
+  [`v0.1.0` prerelease](https://github.com/rrpauls/esra-agents/releases/tag/v0.1.0).
+- **Exporter conformance:** 24/24 benchmark cases pass across the four declared
+  implementations, with zero schema errors and zero privacy violations.
+- **Native host maturity:** still evidence-gated. Package validation and exporter
+  conformance do not by themselves prove lifecycle behavior in every host.
+
+See the [benchmark methodology](docs/ESRA_Benchmarking.md),
+[compatibility matrix](conformance/compatibility-matrix.json), and
+[Host Pilot Protocol](docs/ESRA_Host_Pilot_Protocol.md) for the exact claim boundaries.
 
 ---
 
@@ -97,7 +120,7 @@ This repository (`esra`) describes **what** the architecture is.
 
 The canonical cross-host implementation is:
 
-- **[esra-agents](https://github.com/rrpauls/esra-agents)** — one portable Agent Skills catalog and shared runtime with thin adapters for ChatGPT/Codex, Claude Code, and Hermes Agent
+- **[esra-agents](https://github.com/rrpauls/esra-agents)** — one portable Agent Skills catalog and shared runtime with thin adapters for ChatGPT/Codex, Claude Code, and Hermes Agent; use its tagged releases for new installations
 
 The earlier host repositories remain available during migration and retain
 their existing release URLs:

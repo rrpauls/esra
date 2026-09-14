@@ -9,14 +9,15 @@ The benchmark provides reproducible cross-implementation evidence for the
 portable `cycle-event@1.0.0` export boundary. It does not launch an ESRA cycle
 and does not test native host integration.
 
-Each canonical scenario is translated into the existing local storage layout
-of `chatgpt-esra`, `claude-esra`, and `hermes-esra`. The runner invokes the real
-exporter CLIs twice in isolated temporary directories and compares the output
-byte for byte.
+Each canonical scenario is translated into the event-log layout of the
+canonical `esra-agents` implementation and the existing storage layouts of the
+three legacy host repositories. The runner invokes the real exporter CLIs twice
+in isolated temporary directories and compares the output byte for byte.
 
 ## Run locally
 
-Place the four repositories under the same parent directory, then run:
+Place the specification, `esra-agents`, and any legacy implementation checkouts
+under the same parent directory, then run:
 
 ```bash
 cd esra

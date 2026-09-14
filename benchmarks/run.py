@@ -22,7 +22,12 @@ from referencing import Registry, Resource
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL_VERSION = "1.2"
 SCHEMA_VERSION = "1.0.0"
-DEFAULT_IMPLEMENTATIONS = ("chatgpt-esra", "claude-esra", "hermes-esra")
+DEFAULT_IMPLEMENTATIONS = (
+    "esra-agents",
+    "chatgpt-esra",
+    "claude-esra",
+    "hermes-esra",
+)
 PRIVATE_KEYS = {
     "command_output",
     "hidden_reasoning",
@@ -122,6 +127,10 @@ def build_hermes_layout(data_dir: Path, scenario: dict[str, Any]) -> None:
 
 
 IMPLEMENTATIONS: dict[str, tuple[str, Callable[[Path, dict[str, Any]], None]]] = {
+    "esra-agents": (
+        "runtime/esra_export.py",
+        lambda path, scenario: build_openai_layout(path, scenario, False),
+    ),
     "chatgpt-esra": (
         "scripts/esra_export.py",
         lambda path, scenario: build_openai_layout(path, scenario, False),
@@ -480,7 +489,7 @@ def main(argv: list[str] | None = None) -> int:
         "--implementations-root",
         type=Path,
         default=ROOT.parent,
-        help="directory containing chatgpt-esra, claude-esra, and hermes-esra",
+        help="directory containing esra-agents and the legacy host implementations",
     )
     parser.add_argument(
         "--implementations",

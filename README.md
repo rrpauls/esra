@@ -18,6 +18,7 @@
   <a href="docs/ESRA_Data_Contracts.md">Data contracts</a> ·
   <a href="docs/ESRA_Benchmarking.md">Benchmark</a> ·
   <a href="conformance/compatibility-matrix.json">Compatibility matrix</a> ·
+  <a href="https://github.com/rrpauls/esra-agents">Universal implementation</a> ·
   <a href="https://github.com/rrpauls/hermes-esra">Hermes Agent implementation</a> ·
   <a href="https://github.com/rrpauls/chatgpt-esra">OpenAI implementation</a> ·
   <a href="https://github.com/rrpauls/claude-esra">Claude implementation</a> ·
@@ -94,12 +95,16 @@ Full stage definitions, inputs/outputs, cycle variants and rules are specified i
 
 This repository (`esra`) describes **what** the architecture is.
 
-Concrete implementations live in separate repositories:
+The canonical cross-host implementation is:
 
-- **[hermes-esra](https://github.com/rrpauls/hermes-esra)** — validated Hermes skills and integration toolkit
-- **[chatgpt-esra](https://github.com/rrpauls/chatgpt-esra)** — OpenAI implementation for ChatGPT and Codex
-- **[claude-esra](https://github.com/rrpauls/claude-esra)** — Claude implementation
-- (Future) Standalone Python engine, other runtimes, etc.
+- **[esra-agents](https://github.com/rrpauls/esra-agents)** — one portable Agent Skills catalog and shared runtime with thin adapters for ChatGPT/Codex, Claude Code, and Hermes Agent
+
+The earlier host repositories remain available during migration and retain
+their existing release URLs:
+
+- **[hermes-esra](https://github.com/rrpauls/hermes-esra)** — legacy Hermes skills and integration toolkit
+- **[chatgpt-esra](https://github.com/rrpauls/chatgpt-esra)** — legacy OpenAI distribution for ChatGPT and Codex
+- **[claude-esra](https://github.com/rrpauls/claude-esra)** — legacy Claude Code distribution
 
 ---
 

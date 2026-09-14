@@ -3,6 +3,20 @@
   "protocol_version": "1.2",
   "implementations": [
     {
+      "implementation": "esra-agents",
+      "manifest": "https://raw.githubusercontent.com/rrpauls/esra-agents/main/esra-conformance.json",
+      "exporter": {
+        "status": "verified",
+        "command": "python3 runtime/esra_export.py --data-dir DATA --output events.jsonl",
+        "record_formats": ["cycle-event@1.0.0"],
+        "evidence": [
+          "https://github.com/rrpauls/esra-agents/blob/main/tests/test_export.py",
+          "https://github.com/rrpauls/esra/blob/main/conformance/test_benchmark.py"
+        ],
+        "notes": "Canonical cross-host implementation; native adapter behavior remains host-pilot gated."
+      }
+    },
+    {
       "implementation": "chatgpt-esra",
       "manifest": "https://raw.githubusercontent.com/rrpauls/chatgpt-esra/main/esra-conformance.json",
       "exporter": {

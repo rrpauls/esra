@@ -53,9 +53,14 @@ class ExporterContractTests(unittest.TestCase):
         for event in events:
             self.cycle_validator.validate(event)
 
-    def test_chatgpt_and_claude_exporters(self):
-        for implementation in ("chatgpt-esra", "claude-esra"):
-            exporter = load_exporter(implementation, "scripts/esra_export.py")
+    def test_portable_event_log_exporters(self):
+        paths = {
+            "esra-agents": "runtime/esra_export.py",
+            "chatgpt-esra": "scripts/esra_export.py",
+            "claude-esra": "scripts/esra_export.py",
+        }
+        for implementation, relative_path in paths.items():
+            exporter = load_exporter(implementation, relative_path)
             if exporter is None:
                 self.skipTest(f"{implementation} checkout is unavailable")
             with self.subTest(implementation=implementation), tempfile.TemporaryDirectory() as temporary:

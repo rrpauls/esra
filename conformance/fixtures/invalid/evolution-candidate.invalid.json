@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","protocol_version":"1.2","candidate_id":"../escape","revision_hash":"bad","correlation_id":"","idempotency_key":"","agent_hash":"raw-agent-id","surface":"runtime","target":"../runtime","state":"applied","evidence_hashes":[],"requires_human":false}

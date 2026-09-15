@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/rrpauls/esra/main/schemas/promotion-receipt.schema.json",
+  "title": "ESRA Promotion or Rollback Receipt",
+  "type": "object",
+  "required": ["schema_version", "protocol_version", "receipt_id", "candidate_id", "revision_hash", "correlation_id", "idempotency_key", "agent_hash", "action", "timestamp", "evidence_hashes"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "protocol_version": {"const": "1.2"},
+    "receipt_id": {"type": "string", "minLength": 1},
+    "candidate_id": {"type": "string", "minLength": 1},
+    "revision_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "correlation_id": {"type": "string", "minLength": 1},
+    "idempotency_key": {"type": "string", "minLength": 1},
+    "agent_hash": {"type": "string", "pattern": "^[a-f0-9]{16}$"},
+    "action": {"enum": ["promote", "rollback", "accept", "quarantine"]},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "evidence_hashes": {"type": "array", "items": {"type": "string"}},
+    "snapshot_hash": {"type": ["string", "null"]},
+    "reason": {"type": "string"}
+  },
+  "additionalProperties": false
+}

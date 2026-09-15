@@ -123,6 +123,11 @@ The cycle must be:
 3. Implement `Value Alignment Assessment` as a separate callable component.
 4. Add the ability to launch `Loop-Auditor` on a schedule or by triggers.
 
+For autonomous hosts, scheduling and trigger execution MUST follow the
+[Autonomous Agent Profile](ESRA_Autonomous_Agent_Profile.md): one bounded cycle,
+protected core controls, comparable evaluation, revision-bound promotion, and
+automatic rollback on declared canary regressions.
+
 ---
 
 *This protocol is a living document and will be updated as ESRA develops.*

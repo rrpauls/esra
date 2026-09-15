@@ -21,6 +21,7 @@
   <a href="docs/ESRA_Loop_Execution_Protocol.md">Loop protocol</a> ·
   <a href="docs/ESRA_Data_Contracts.md">Data contracts</a> ·
   <a href="docs/ESRA_Benchmarking.md">Benchmark</a> ·
+  <a href="docs/ESRA_Autonomous_Agent_Profile.md">Autonomous profile</a> ·
   <a href="conformance/compatibility-matrix.json">Compatibility matrix</a> ·
   <a href="https://github.com/rrpauls/esra-agents">Universal implementation</a> ·
   <a href="https://github.com/rrpauls/hermes-esra">Hermes Agent implementation</a> ·
@@ -49,8 +50,9 @@ improvement processes without implying changes to model weights.
 
 - **Specification:** ESRA 1.2, runtime-neutral and licensed under Apache-2.0.
 - **Canonical implementation:**
-  [`esra-agents`](https://github.com/rrpauls/esra-agents), currently released as
-  [`v0.1.0` prerelease](https://github.com/rrpauls/esra-agents/releases/tag/v0.1.0).
+  [`esra-agents`](https://github.com/rrpauls/esra-agents), with the autonomous
+  OpenClaw profile released as
+  [`v0.2.0` prerelease](https://github.com/rrpauls/esra-agents/releases/tag/v0.2.0).
 - **Exporter conformance:** 24/24 benchmark cases pass across the four declared
   implementations, with zero schema errors and zero privacy violations.
 - **Native host maturity:** still evidence-gated. Package validation and exporter
@@ -72,6 +74,7 @@ See the [benchmark methodology](docs/ESRA_Benchmarking.md),
 | [compatibility-matrix.json](conformance/compatibility-matrix.json) | Machine-readable exporter coverage across current implementations |
 | [ESRA_Benchmarking.md](docs/ESRA_Benchmarking.md) | Reproducible exporter-conformance benchmark and interpretation boundaries |
 | [ESRA_Host_Pilot_Protocol.md](docs/ESRA_Host_Pilot_Protocol.md) | Controlled cross-host behavior pilot with evidence requirements |
+| [ESRA_Autonomous_Agent_Profile.md](docs/ESRA_Autonomous_Agent_Profile.md) | Guarded autonomous evolution lifecycle and ten-scenario host gate |
 
 ---
 

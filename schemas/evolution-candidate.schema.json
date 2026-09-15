@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/rrpauls/esra/main/schemas/evolution-candidate.schema.json",
+  "title": "ESRA Evolution Candidate",
+  "type": "object",
+  "required": ["schema_version", "protocol_version", "candidate_id", "revision_hash", "correlation_id", "idempotency_key", "agent_hash", "surface", "target", "state", "evidence_hashes", "requires_human"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "protocol_version": {"const": "1.2"},
+    "candidate_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"},
+    "revision_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "correlation_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "idempotency_key": {"type": "string", "minLength": 1, "maxLength": 128},
+    "agent_hash": {"type": "string", "pattern": "^[a-f0-9]{16}$"},
+    "surface": {"enum": ["skills", "routing"]},
+    "target": {"type": "string", "minLength": 1},
+    "state": {"enum": ["observed", "proposed", "aligned", "evaluated", "staged", "active", "accepted", "rolled-back", "rejected", "quarantined", "inconclusive"]},
+    "evidence_hashes": {"type": "array", "items": {"type": "string", "pattern": "^[a-f0-9]{16,64}$"}, "uniqueItems": true},
+    "requires_human": {"type": "boolean"},
+    "risk_reasons": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/rrpauls/esra/main/schemas/autonomy-policy.schema.json",
+  "title": "ESRA Autonomy Policy",
+  "type": "object",
+  "required": ["schema_version", "protocol_version", "mode", "allowed_surfaces", "core_policy", "budgets", "evidence", "evaluation", "canary"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "protocol_version": {"const": "1.2"},
+    "mode": {"enum": ["paused", "proposal-only", "guarded"]},
+    "allowed_surfaces": {"type": "array", "items": {"enum": ["skills", "routing"]}, "uniqueItems": true},
+    "core_policy": {"const": "requires-human"},
+    "budgets": {
+      "type": "object",
+      "required": ["reviews_per_agent_day", "experiments_per_agent_day", "promotions_per_agent_day"],
+      "properties": {
+        "reviews_per_agent_day": {"type": "integer", "minimum": 0},
+        "experiments_per_agent_day": {"type": "integer", "minimum": 0},
+        "promotions_per_agent_day": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["persist_raw_content", "max_ephemeral_excerpts", "max_excerpt_bytes", "retention_days"],
+      "properties": {
+        "persist_raw_content": {"const": false},
+        "max_ephemeral_excerpts": {"type": "integer", "minimum": 0, "maximum": 4},
+        "max_excerpt_bytes": {"type": "integer", "minimum": 0, "maximum": 2048},
+        "retention_days": {"type": "integer", "minimum": 1, "maximum": 30}
+      },
+      "additionalProperties": false
+    },
+    "evaluation": {
+      "type": "object",
+      "required": ["minimum_replays", "minimum_candidate_wins", "blind_judge", "critical_regressions_allowed"],
+      "properties": {
+        "minimum_replays": {"type": "integer", "minimum": 3},
+        "minimum_candidate_wins": {"type": "integer", "minimum": 2},
+        "blind_judge": {"const": true},
+        "critical_regressions_allowed": {"const": 0}
+      },
+      "additionalProperties": false
+    },
+    "canary": {
+      "type": "object",
+      "required": ["eligible_tasks", "maximum_days", "task_regressions_before_rollback"],
+      "properties": {
+        "eligible_tasks": {"type": "integer", "minimum": 1},
+        "maximum_days": {"type": "integer", "minimum": 1},
+        "task_regressions_before_rollback": {"type": "integer", "minimum": 1}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

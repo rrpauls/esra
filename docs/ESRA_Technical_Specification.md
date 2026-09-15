@@ -146,14 +146,24 @@ architecture diagram or the presence of a skill file.
 | Foundation and governance | Verified | Apache-2.0 licensing, contribution rules, this specification, and repository CI |
 | Portable data contracts | Verified | Draft 2020-12 schemas, positive/negative fixtures, and ESRA 1.2 conformance manifests |
 | Portable cycle-event export | Verified for synthetic fixtures | Cross-implementation exporter tests and the [benchmark](ESRA_Benchmarking.md); this does not prove native lifecycle integration |
-| Bounded host behavior | Pilot-ready, not cross-host verified | The [host pilot protocol](ESRA_Host_Pilot_Protocol.md) defines nine required host/scenario cases; results are not yet claimed |
-| Living-cycle orchestration | Implementation-specific | Skill-based orchestration exists, while automatic execution is not assumed and Hermes native lifecycle integration remains planned |
+| Bounded host behavior | OpenClaw autonomous prerelease verified; cross-host gate open | The OpenClaw 2026.9.1 isolated gate covered native inspection, Workshop apply, and rollback; the Hermes 0.21 model-backed cron gate is still pending |
+| Living-cycle orchestration | Guarded prerelease | `esra-agents` implements a durable review queue and native OpenClaw/Hermes adapters; this is not a stable or soak-verified claim |
 | Depth and evolutionary dynamics | Proposed or implementation-specific | `Optimizer-Philosopher`, `System-Dynamics-Thinker`, mental-model updating, and antifragility require host evidence before architecture-wide maturity claims |
 
-The next release gate is completion of the host pilot, reconciliation of its
-evidence with implementation manifests, and maintainer review. An Event Bus or
-separate Codex implementation should be introduced only if runtime evidence
-shows that existing adapters cannot preserve the protocol boundary.
+### Autonomous Agent Profile
+
+Implementations that initiate and apply local improvement cycles without a
+foreground user request must conform to the additive
+[ESRA Autonomous Agent Profile 1.0](ESRA_Autonomous_Agent_Profile.md). The
+profile defines guarded mutation surfaces, revision-bound lifecycle states,
+evaluation evidence, budgets, recursion suppression, and rollback. A scheduler
+or hook alone is not evidence of autonomous self-correction.
+
+The next release gate is the model-backed isolated Hermes host gate, followed
+by the shared seven-day soak and reconciliation of evidence with implementation
+manifests. An Event Bus or separate Codex implementation should be introduced
+only if runtime evidence shows that existing adapters cannot preserve the
+protocol boundary.
 
 ---
 

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/rrpauls/esra/main/schemas/evaluation-result.schema.json",
+  "title": "ESRA Candidate Evaluation",
+  "type": "object",
+  "required": ["schema_version", "protocol_version", "candidate_id", "revision_hash", "correlation_id", "idempotency_key", "deterministic_pass", "alignment_decision", "blind", "proposal_context_visible", "replays", "decision"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "protocol_version": {"const": "1.2"},
+    "candidate_id": {"type": "string", "minLength": 1},
+    "revision_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "correlation_id": {"type": "string", "minLength": 1},
+    "idempotency_key": {"type": "string", "minLength": 1},
+    "deterministic_pass": {"type": "boolean"},
+    "alignment_decision": {"enum": ["allow", "revise", "block"]},
+    "blind": {"const": true},
+    "proposal_context_visible": {"const": false},
+    "replays": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["fixture", "baseline_pass", "candidate_pass", "judge", "critical_regression"],
+        "properties": {
+          "fixture": {"type": "string", "minLength": 1},
+          "baseline_pass": {"type": "boolean"},
+          "candidate_pass": {"type": "boolean"},
+          "judge": {"enum": ["baseline", "candidate", "tie"]},
+          "critical_regression": {"type": "boolean"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "decision": {"enum": ["pass", "inconclusive", "block"]},
+    "candidate_wins": {"type": "integer", "minimum": 0},
+    "evidence_hashes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

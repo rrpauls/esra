@@ -41,6 +41,7 @@ jobs:
           test -s docs/ESRA_Technical_Specification.md
           test -s docs/ESRA_Loop_Execution_Protocol.md
           test -s docs/ESRA_Data_Contracts.md
+          test -s docs/ESRA_Autonomous_Agent_Profile.md
       - run: python -m unittest discover -s conformance -v
       - name: Run cross-implementation exporter benchmark
         run: |

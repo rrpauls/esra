@@ -25,6 +25,10 @@ agent orchestration mechanism.
 | `conformance-matrix.schema.json` | Describes portable exporters across implementations |
 | `benchmark-scenario.schema.json` | Defines runtime-neutral synthetic exporter scenarios |
 | `benchmark-result.schema.json` | Records aggregated, machine-readable exporter benchmark evidence |
+| `autonomy-policy.schema.json` | Declares guarded autonomy, budgets, evidence limits, evaluation, and canary defaults |
+| `evolution-candidate.schema.json` | Identifies a revision-bound local skill or routing candidate and its lifecycle state |
+| `evaluation-result.schema.json` | Records deterministic, replay, alignment, and blind-judge evidence |
+| `promotion-receipt.schema.json` | Provides an idempotent receipt for promotion, acceptance, quarantine, or rollback |
 
 All schemas live in [`schemas/`](../schemas/).
 
@@ -41,6 +45,10 @@ All schemas live in [`schemas/`](../schemas/).
   `implemented`, `verified`, `simulated`, and `planned` capabilities.
 - Existing implementation-specific logs need not be rewritten. Adapters may
   map legacy records into these contracts at export boundaries.
+
+The additive [Autonomous Agent Profile](ESRA_Autonomous_Agent_Profile.md) uses
+these contracts without changing `cycle-event@1.0.0` or requiring existing
+ESRA 1.2 implementations to claim autonomous execution.
 
 ## Portable event export
 

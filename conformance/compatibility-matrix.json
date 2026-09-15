@@ -13,7 +13,16 @@
           "https://github.com/rrpauls/esra-agents/blob/main/tests/test_export.py",
           "https://github.com/rrpauls/esra/blob/main/conformance/test_benchmark.py"
         ],
-        "notes": "Canonical cross-host implementation; native adapter behavior remains host-pilot gated."
+        "notes": "Canonical cross-host implementation; stable native behavior remains host-pilot gated."
+      },
+      "autonomy": {
+        "profile": "Autonomous Agent Profile 1.0",
+        "status": "prerelease",
+        "evidence": "https://github.com/rrpauls/esra-agents/blob/main/docs/AUTONOMOUS_HOST_GATE.md",
+        "hosts": {
+          "openclaw-2026.9.1": "isolated-runtime-gate-passed",
+          "hermes-0.21.0": "native-package-and-cron-registration-passed-model-backed-gate-pending"
+        }
       }
     },
     {

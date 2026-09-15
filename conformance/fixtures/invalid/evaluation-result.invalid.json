@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","protocol_version":"1.2","candidate_id":"candidate-1","revision_hash":"bad","correlation_id":"review-1","idempotency_key":"evaluation-1","deterministic_pass":true,"alignment_decision":"allow","blind":false,"proposal_context_visible":true,"replays":[],"decision":"pass"}

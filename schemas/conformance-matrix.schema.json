@@ -40,6 +40,21 @@
             "notes": {"type": "string"}
           },
           "additionalProperties": false
+        },
+        "autonomy": {
+          "type": "object",
+          "required": ["profile", "status", "evidence", "hosts"],
+          "properties": {
+            "profile": {"const": "Autonomous Agent Profile 1.0"},
+            "status": {"enum": ["implemented", "prerelease", "stable"]},
+            "evidence": {"type": "string", "format": "uri"},
+            "hosts": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {"type": "string", "minLength": 1}
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false

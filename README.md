@@ -52,7 +52,7 @@ improvement processes without implying changes to model weights.
 - **Canonical implementation:**
   [`esra-agents`](https://github.com/rrpauls/esra-agents), with the autonomous
   OpenClaw profile released as
-  [`v0.2.1` prerelease](https://github.com/rrpauls/esra-agents/releases/tag/v0.2.1).
+  [`v0.2.2` prerelease](https://github.com/rrpauls/esra-agents/releases/tag/v0.2.2).
 - **Exporter conformance:** 24/24 benchmark cases pass across the four declared
   implementations, with zero schema errors and zero privacy violations.
 - **Native host maturity:** still evidence-gated. Package validation and exporter

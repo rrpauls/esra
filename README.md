@@ -5,7 +5,11 @@
 [![Specification: ESRA 1.2](https://img.shields.io/badge/Specification-ESRA%201.2-6f42c1.svg)](docs/ESRA_Technical_Specification.md)
 
 <p align="center">
-  <img src="assets/logo.svg" alt="ESRA — Evolutionary Self-Recursive Architecture logo" width="240"/>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-inverse.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/logo.svg">
+    <img src="assets/logo.svg" alt="ESRA — Evolutionary Self-Recursive Architecture logo" width="240">
+  </picture>
 </p>
 
 <p align="center">

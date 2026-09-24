@@ -6,9 +6,9 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-inverse.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/logo.svg">
-    <img src="assets/logo.svg" alt="ESRA — Evolutionary Self-Recursive Architecture logo" width="240">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-wireframe-inverse.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/logo-wireframe.svg">
+    <img src="assets/logo-wireframe.svg" alt="ESRA — Evolutionary Self-Recursive Architecture logo" width="240">
   </picture>
 </p>
 

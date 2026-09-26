@@ -99,7 +99,7 @@ See the [benchmark methodology](docs/ESRA_Benchmarking.md),
 
 ## The ESRA Loop
 
-![ESRA Loop Diagram](docs/images/ESRA_Loop_Diagram.png)
+![ESRA Loop Diagram](docs/images/ESRA_Loop_Diagram.svg)
 
 The protocol defines a cycle of observation, improvement, value alignment, deep
 analysis, safe experimentation, integration, and resilience learning. The

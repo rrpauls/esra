@@ -6,9 +6,10 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-wireframe-inverse.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/logo-wireframe.svg">
-    <img src="assets/logo-wireframe.svg" alt="ESRA — Evolutionary Self-Recursive Architecture logo" width="240">
+    <source media="(prefers-color-scheme: dark) and (max-width: 720px)" srcset="docs/images/ESRA_Spec_Hero_mobile_dark.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/images/ESRA_Spec_Hero_dark.svg">
+    <source media="(max-width: 720px)" srcset="docs/images/ESRA_Spec_Hero_mobile_light.svg">
+    <img src="docs/images/ESRA_Spec_Hero_light.svg" alt="ESRA specification — source of truth for the architecture, with esra-agents as the implementation path" width="100%">
   </picture>
 </p>
 

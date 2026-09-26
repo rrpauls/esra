@@ -1,0 +1,50 @@
+name: Render ESRA loop diagram
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/images/ESRA_Loop_Diagram.svg"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install renderer
+        run: python -m pip install --disable-pip-version-check cairosvg
+
+      - name: Render PNG fallback
+        run: |
+          python - <<'PY'
+          import cairosvg
+          cairosvg.svg2png(
+              url="docs/images/ESRA_Loop_Diagram.svg",
+              write_to="docs/images/ESRA_Loop_Diagram.png",
+              output_width=1800,
+              output_height=1000,
+          )
+          PY
+
+      - name: Commit rendered PNG when changed
+        run: |
+          if git diff --quiet -- docs/images/ESRA_Loop_Diagram.png; then
+            echo "PNG already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/images/ESRA_Loop_Diagram.png
+          git commit -m "Render ESRA loop diagram PNG"
+          git push

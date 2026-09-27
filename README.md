@@ -50,6 +50,14 @@ ESRA is not a claim of phenomenal consciousness or autonomous model learning.
 It specifies observable workflows, evidence boundaries, and tests for agent-level
 improvement processes without implying changes to model weights.
 
+![ESRA Loop Diagram](docs/images/ESRA_Loop_Diagram.svg)
+
+The loop turns improvement into an evidence-producing cycle of observation,
+proposal, value alignment, analysis, safe experimentation, integration, and
+resilience learning. The **Loop-Auditor** reviews the improvement process itself
+on a configured cadence or after anomalies. See the
+[Loop Execution Protocol](docs/ESRA_Loop_Execution_Protocol.md) for the full stage definitions and rules.
+
 ## Current status
 
 - **Specification:** ESRA 1.2, runtime-neutral and licensed under Apache-2.0.
@@ -94,19 +102,6 @@ See the [benchmark methodology](docs/ESRA_Benchmarking.md),
 | 5     | Integrative                 | Mental-Model-Updater                  | Integration |
 | 6     | Antifragile                 | Antifragility-Builder                 | Strength from stress |
 | 7     | Meta                        | Loop-Auditor                          | Evolution of the architecture itself |
-
----
-
-## The ESRA Loop
-
-![ESRA Loop Diagram](docs/images/ESRA_Loop_Diagram.svg)
-
-The protocol defines a cycle of observation, improvement, value alignment, deep
-analysis, safe experimentation, integration, and resilience learning. The
-**Loop-Auditor** operates at the meta-level, reviewing recorded cycles on a
-configured cadence or after an anomaly.
-
-Full stage definitions, inputs/outputs, cycle variants and rules are specified in the [Loop Execution Protocol](docs/ESRA_Loop_Execution_Protocol.md).
 
 ---
 

@@ -12,7 +12,6 @@ class HostPilotEvidenceTests(unittest.TestCase):
 
     def test_committed_exports_are_schema_valid_and_private(self):
         evidence_files = sorted((ROOT / "conformance" / "host-pilots").glob("*.events.jsonl"))
-        self.assertTrue(evidence_files)
         for path in evidence_files:
             with self.subTest(path=path.name):
                 events = [

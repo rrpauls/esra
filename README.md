@@ -28,9 +28,6 @@
   <a href="docs/ESRA_Autonomous_Agent_Profile.md">Autonomous profile</a> ·
   <a href="conformance/compatibility-matrix.json">Compatibility matrix</a> ·
   <a href="https://github.com/rrpauls/esra-agents">Universal implementation</a> ·
-  <a href="https://github.com/rrpauls/hermes-esra">Hermes Agent implementation</a> ·
-  <a href="https://github.com/rrpauls/chatgpt-esra">OpenAI implementation</a> ·
-  <a href="https://github.com/rrpauls/claude-esra">Claude implementation</a> ·
   <a href="LICENSE">Apache-2.0 License</a>
 </p>
 
@@ -65,8 +62,8 @@ on a configured cadence or after anomalies. See the
   [`esra-agents`](https://github.com/rrpauls/esra-agents), with the autonomous
   OpenClaw profile released as
   [`v0.2.2` prerelease](https://github.com/rrpauls/esra-agents/releases/tag/v0.2.2).
-- **Exporter conformance:** 24/24 benchmark cases pass across the four declared
-  implementations, with zero schema errors and zero privacy violations.
+- **Exporter conformance:** 6/6 benchmark cases pass for the canonical
+  `esra-agents` implementation, with zero schema errors and zero privacy violations.
 - **Native host maturity:** still evidence-gated. Package validation and exporter
   conformance do not by themselves prove lifecycle behavior in every host.
 
@@ -123,13 +120,6 @@ This repository (`esra`) describes **what** the architecture is.
 The canonical cross-host implementation is:
 
 - **[esra-agents](https://github.com/rrpauls/esra-agents)** — one portable Agent Skills catalog and shared runtime with thin adapters for ChatGPT/Codex, Claude Code, and Hermes Agent; use its tagged releases for new installations
-
-The earlier host repositories remain available during migration and retain
-their existing release URLs:
-
-- **[hermes-esra](https://github.com/rrpauls/hermes-esra)** — legacy Hermes skills and integration toolkit
-- **[chatgpt-esra](https://github.com/rrpauls/chatgpt-esra)** — legacy OpenAI distribution for ChatGPT and Codex
-- **[claude-esra](https://github.com/rrpauls/claude-esra)** — legacy Claude Code distribution
 
 ---
 

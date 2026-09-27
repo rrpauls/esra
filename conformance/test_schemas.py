@@ -57,9 +57,6 @@ class ContractTests(unittest.TestCase):
     def test_available_sibling_implementation_manifests(self):
         candidates = [
             ROOT.parent / "esra-agents" / "esra-conformance.json",
-            ROOT.parent / "chatgpt-esra" / "esra-conformance.json",
-            ROOT.parent / "claude-esra" / "esra-conformance.json",
-            ROOT.parent / "hermes-esra" / "esra-conformance.json",
         ]
         for path in candidates:
             if path.exists():
@@ -74,10 +71,10 @@ class ContractTests(unittest.TestCase):
         entries = {
             item["implementation"]: item for item in matrix["implementations"]
         }
-        self.assertEqual(len(matrix["implementations"]), 4)
+        self.assertEqual(len(matrix["implementations"]), 1)
         self.assertEqual(
             set(entries),
-            {"esra-agents", "chatgpt-esra", "claude-esra", "hermes-esra"},
+            {"esra-agents"},
         )
         for implementation, entry in entries.items():
             with self.subTest(implementation=implementation):

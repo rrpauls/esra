@@ -22,12 +22,7 @@ from referencing import Registry, Resource
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL_VERSION = "1.2"
 SCHEMA_VERSION = "1.0.0"
-DEFAULT_IMPLEMENTATIONS = (
-    "esra-agents",
-    "chatgpt-esra",
-    "claude-esra",
-    "hermes-esra",
-)
+DEFAULT_IMPLEMENTATIONS = ("esra-agents",)
 PRIVATE_KEYS = {
     "command_output",
     "hidden_reasoning",
@@ -40,30 +35,23 @@ PRIVATE_KEYS = {
 }
 
 
-def _write_json(path: Path, value: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, sort_keys=True), encoding="utf-8")
-
-
-def _native_openai_record(record: dict[str, Any], claude: bool) -> Any:
+def _native_record(record: dict[str, Any]) -> Any:
     record_type = record["record_type"]
     if record_type == "malformed":
         return "malformed-record"
-    timestamp_key = "ts" if claude else "timestamp"
-    kind_key = "event" if claude else "kind"
     if record_type == "completed-cycle":
         native: dict[str, Any] = {
-            timestamp_key: record.get("timestamp", "2026-09-12T18:00:00Z"),
-            kind_key: "cycle_record" if claude else "cycle",
+            "timestamp": record.get("timestamp", "2026-09-12T18:00:00Z"),
+            "kind": "cycle",
             "outcome": "success" if record.get("success", True) else "failure",
             "evidence": record.get("evidence", []),
         }
     else:
         native = {
-            timestamp_key: record.get("timestamp", "2026-09-12T18:00:00Z"),
-            kind_key: "trigger_blocked" if claude else "trigger-blocked",
+            "timestamp": record.get("timestamp", "2026-09-12T18:00:00Z"),
+            "kind": "trigger-blocked",
             "outcome": "blocked",
-            "recommend_cycle" if claude else "recommended": record.get("recommended", True),
+            "recommended": record.get("recommended", True),
         }
     if record.get("source_id"):
         native["id"] = record["source_id"]
@@ -71,77 +59,17 @@ def _native_openai_record(record: dict[str, Any], claude: bool) -> Any:
     return native
 
 
-def build_openai_layout(data_dir: Path, scenario: dict[str, Any], claude: bool) -> None:
-    records = [_native_openai_record(record, claude) for record in scenario["records"]]
+def build_esra_agents_layout(data_dir: Path, scenario: dict[str, Any]) -> None:
+    records = [_native_record(record) for record in scenario["records"]]
     if not records:
         return
     lines = "".join(json.dumps(record, sort_keys=True) + "\n" for record in records)
     (data_dir / "events.jsonl").write_text(lines, encoding="utf-8")
 
 
-def build_hermes_layout(data_dir: Path, scenario: dict[str, Any]) -> None:
-    history: list[Any] = []
-    cycles: list[dict[str, Any]] = []
-    for record in scenario["records"]:
-        record_type = record["record_type"]
-        if record_type == "malformed":
-            history.append("malformed-record")
-            continue
-        if record_type == "trigger-recommendation":
-            native: dict[str, Any] = {
-                "timestamp": record.get("timestamp", "2026-09-12T18:00:00Z"),
-                "trigger_decision": record.get("recommended", True),
-            }
-            if record.get("source_id"):
-                native["id"] = record["source_id"]
-            private = record.get("private_values", {})
-            if private:
-                native["task_context"] = private
-            history.append(native)
-            continue
-        private = record.get("private_values", {})
-        cycle = {
-            "timestamp": record.get("timestamp", "2026-09-12T18:00:00Z"),
-            "input_state": private,
-            "orchestrator_decisions": {"skills_activated": ["ooda-framework"]},
-            "outputs": {
-                "success": record.get("success", True),
-                "improvements_applied": record.get("evidence", []),
-                "anomalies": [],
-            },
-            "duration_and_resources": {
-                "duration_seconds": 0.0,
-                "command_output": private.get("command_output", ""),
-            },
-        }
-        if record.get("source_id"):
-            cycle["id"] = record["source_id"]
-        cycles.append(cycle)
-    if history:
-        _write_json(data_dir / "evolution_history.json", history)
-    if cycles:
-        log_dir = data_dir / "evolution-logs"
-        log_dir.mkdir()
-        for index, cycle in enumerate(cycles, start=1):
-            _write_json(log_dir / f"esra_cycle_{index:03d}.json", cycle)
-
-
 IMPLEMENTATIONS: dict[str, tuple[str, Callable[[Path, dict[str, Any]], None]]] = {
-    "esra-agents": (
-        "runtime/esra_export.py",
-        lambda path, scenario: build_openai_layout(path, scenario, False),
-    ),
-    "chatgpt-esra": (
-        "scripts/esra_export.py",
-        lambda path, scenario: build_openai_layout(path, scenario, False),
-    ),
-    "claude-esra": (
-        "scripts/esra_export.py",
-        lambda path, scenario: build_openai_layout(path, scenario, True),
-    ),
-    "hermes-esra": ("tools/esra_export.py", build_hermes_layout),
+    "esra-agents": ("runtime/esra_export.py", build_esra_agents_layout),
 }
-
 
 def load_validators() -> dict[str, Draft202012Validator]:
     schemas = {
@@ -489,7 +417,7 @@ def main(argv: list[str] | None = None) -> int:
         "--implementations-root",
         type=Path,
         default=ROOT.parent,
-        help="directory containing esra-agents and the legacy host implementations",
+        help="directory containing the esra-agents checkout",
     )
     parser.add_argument(
         "--implementations",

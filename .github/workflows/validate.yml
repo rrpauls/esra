@@ -16,18 +16,6 @@ jobs:
         with:
           repository: rrpauls/esra-agents
           path: implementations/esra-agents
-      - uses: actions/checkout@v5
-        with:
-          repository: rrpauls/chatgpt-esra
-          path: implementations/chatgpt-esra
-      - uses: actions/checkout@v5
-        with:
-          repository: rrpauls/claude-esra
-          path: implementations/claude-esra
-      - uses: actions/checkout@v5
-        with:
-          repository: rrpauls/hermes-esra
-          path: implementations/hermes-esra
       - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
@@ -43,7 +31,7 @@ jobs:
           test -s docs/ESRA_Data_Contracts.md
           test -s docs/ESRA_Autonomous_Agent_Profile.md
       - run: python -m unittest discover -s conformance -v
-      - name: Run cross-implementation exporter benchmark
+      - name: Run exporter benchmark
         run: |
           python benchmarks/run.py \
             --implementations-root implementations \

@@ -58,7 +58,7 @@ class BenchmarkTests(unittest.TestCase):
             report = run_benchmark(
                 self.scenarios_dir,
                 Path(temporary),
-                ("chatgpt-esra",),
+                ("esra-agents",),
             )
         self.assertEqual(report["status"], "fail")
         self.assertEqual(report["summary"]["passed_cases"], 0)
@@ -68,12 +68,12 @@ class BenchmarkTests(unittest.TestCase):
 
     def test_incompatible_manifest_is_a_required_failure(self):
         with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary) / "chatgpt-esra"
+            root = Path(temporary) / "esra-agents"
             root.mkdir()
             (root / "esra-conformance.json").write_text(
                 json.dumps(
                     {
-                        "implementation": "chatgpt-esra",
+                        "implementation": "esra-agents",
                         "implementation_version": "9.0.0",
                         "protocol_version": "9.9",
                         "runtime": "fixture",
@@ -90,7 +90,7 @@ class BenchmarkTests(unittest.TestCase):
             report = run_benchmark(
                 self.scenarios_dir,
                 Path(temporary),
-                ("chatgpt-esra",),
+                ("esra-agents",),
             )
         self.assertEqual(report["status"], "fail")
         self.assertTrue(

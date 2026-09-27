@@ -56,8 +56,6 @@ class ExporterContractTests(unittest.TestCase):
     def test_portable_event_log_exporters(self):
         paths = {
             "esra-agents": "runtime/esra_export.py",
-            "chatgpt-esra": "scripts/esra_export.py",
-            "claude-esra": "scripts/esra_export.py",
         }
         for implementation, relative_path in paths.items():
             exporter = load_exporter(implementation, relative_path)
@@ -81,18 +79,6 @@ class ExporterContractTests(unittest.TestCase):
                 self.validate_events(events)
                 self.assertNotIn("must not be exported", json.dumps(events))
 
-    def test_hermes_exporter(self):
-        exporter = load_exporter("hermes-esra", "tools/esra_export.py")
-        if exporter is None:
-            self.skipTest("hermes-esra checkout is unavailable")
-        with tempfile.TemporaryDirectory() as temporary:
-            home = Path(temporary)
-            (home / "evolution_history.json").write_text(
-                '[{"timestamp":"2026-09-12T18:00:00Z","triggered":true}]',
-                encoding="utf-8",
-            )
-            events = exporter.export_events(home)
-            self.validate_events(events)
 
 
 if __name__ == "__main__":

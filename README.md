@@ -47,7 +47,11 @@ ESRA is not a claim of phenomenal consciousness or autonomous model learning.
 It specifies observable workflows, evidence boundaries, and tests for agent-level
 improvement processes without implying changes to model weights.
 
-![ESRA Loop Diagram](docs/images/ESRA_Loop_Diagram.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/images/ESRA_Loop_Diagram_Dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="docs/images/ESRA_Loop_Diagram.png">
+  <img alt="ESRA Loop Diagram" src="docs/images/ESRA_Loop_Diagram.png">
+</picture>
 
 The loop turns improvement into an evidence-producing cycle of observation,
 proposal, value alignment, analysis, safe experimentation, integration, and

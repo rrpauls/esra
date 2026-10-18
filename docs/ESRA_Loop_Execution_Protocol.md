@@ -66,6 +66,14 @@ The cycle must be:
 **Additional rule:**
 - When there is significant impact on values or long-term direction, a report is formed for `Value-Clarifier`.
 
+**Cross-host closure rule (additive):** An integration into a working model,
+local repository, or conversation memory does **not** establish deployment to
+other agents. For changes that must reach multiple hosts or repositories, use
+[Promotion and Propagation Closure](ESRA_Promotion_Closure.md) to enumerate
+required targets, verify each target against the evaluated revision, and report
+`PENDING` or `PARTIAL` until all intended destinations are proven. Do not
+confuse this cross-host status with a runtime promotion receipt.
+
 ### Stage 7: Antifragility (recommended)
 **Skill:** `Antifragility-Builder`  
 **Input:** Experiment results and model updates  

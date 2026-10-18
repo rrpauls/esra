@@ -1,6 +1,7 @@
 import importlib.util
 import json
 import tempfile
+import sys
 import unittest
 from pathlib import Path
 
@@ -27,7 +28,14 @@ def load_exporter(name: str, relative_path: str):
     )
     assert spec and spec.loader
     module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+    # External implementations are loaded by file path; expose sibling imports
+    # (such as runtime/esra_paths.py) only during this load.
+    module_dir = str((root / relative_path).parent)
+    sys.path.insert(0, module_dir)
+    try:
+        spec.loader.exec_module(module)
+    finally:
+        sys.path.remove(module_dir)
     return module
 
 

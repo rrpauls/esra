@@ -45,6 +45,15 @@ three comparable baseline/candidate replays, a context-blind judge, at least two
 candidate wins, and no critical privacy, safety, completion, or routine-routing
 regression. Missing evidence or disagreement is `inconclusive`.
 
+## Cross-host propagation boundary
+
+The revision-bound `promotion-receipt` proves an **authorized local controller
+transition only**. It does not show that policy, skills, or instructions have
+been installed or activated on another host. See
+[Promotion and Propagation Closure](ESRA_Promotion_Closure.md) for the separate
+scope/target/verification contract. Core policy, protected repositories, host
+configuration, and cross-host deployment remain human-authorized surfaces.
+
 ## Canary and rollback
 
 Before activation the implementation creates an immutable snapshot. The canary

@@ -88,6 +88,7 @@ See the [benchmark methodology](docs/ESRA_Benchmarking.md),
 | [ESRA_Benchmarking.md](docs/ESRA_Benchmarking.md) | Reproducible exporter-conformance benchmark and interpretation boundaries |
 | [ESRA_Host_Pilot_Protocol.md](docs/ESRA_Host_Pilot_Protocol.md) | Controlled cross-host behavior pilot with evidence requirements |
 | [ESRA_Autonomous_Agent_Profile.md](docs/ESRA_Autonomous_Agent_Profile.md) | Guarded autonomous evolution lifecycle and ten-scenario host gate |
+| [ESRA_Promotion_Closure.md](docs/ESRA_Promotion_Closure.md) | Cross-host propagation scope and evidence required before claiming an improvement is deployed |
 
 ---
 
